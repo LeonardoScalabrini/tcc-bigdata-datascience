@@ -28,7 +28,8 @@
 
 package jgibblda;
 
-import org.kohsuke.args4j.*;
+import org.kohsuke.args4j.CmdLineException;
+import org.kohsuke.args4j.CmdLineParser;
 
 public class LDA {
 	

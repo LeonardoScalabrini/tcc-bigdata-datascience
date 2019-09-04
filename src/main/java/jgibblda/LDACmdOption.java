@@ -1,6 +1,6 @@
 package jgibblda;
 
-import org.kohsuke.args4j.*;
+import org.kohsuke.args4j.Option;
 
 public class LDACmdOption {
 	
