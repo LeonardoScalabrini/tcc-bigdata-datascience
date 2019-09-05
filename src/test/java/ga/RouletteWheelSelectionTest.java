@@ -7,7 +7,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.*;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -18,41 +19,66 @@ public class RouletteWheelSelectionTest {
 
     @Test
     public void deveRetornarCromossomo() throws ChromosomeNotFoundException {
+
+        Component c0 = new Component(0.0, 4.0, 0.0);
+        Component c1 = new Component(0.0, 4.0, 1.0);
+        Component c2 = new Component(0.0, 4.0, 2.0);
+
         List<Chromosome> chromosomes = new ArrayList<Chromosome>();
-        chromosomes.add(new Chromosome(Arrays.asList(0, 1, 2)));
+        chromosomes.add(new Chromosome(Arrays.asList(c0, c1, c2)));
 
         when(random.nextInt(3)).thenReturn(2);
 
         RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection(chromosomes, random);
-        assertEquals(Arrays.asList(0, 1, 2), rouletteWheelSelection.selection().getValues());
+        assertEquals(Arrays.asList(c0, c1, c2), rouletteWheelSelection.selection().getValues());
         verify(random, times(1)).nextInt(3);
     }
 
     @Test
     public void deveRetornarCromossomoPorRoleta() throws ChromosomeNotFoundException {
+
+        Component c0 = new Component(0.0, 4.0, 0.0);
+        Component c1 = new Component(0.0, 4.0, 1.0);
+        Component c2 = new Component(0.0, 4.0, 2.0);
+
+        Component c3 = new Component(0.0, 4.0, 3.0);
+        Component c4 = new Component(0.0, 4.0, 4.0);
+        Component c5 = new Component(0.0, 4.0, 5.0);
+        Component c6 = new Component(0.0, 4.0, 6.0);
+
         List<Chromosome> chromosomes = new ArrayList<Chromosome>();
-        chromosomes.add(new Chromosome(Arrays.asList(0, 1, 2)));
-        chromosomes.add(new Chromosome(Arrays.asList(1, 2, 3)));
-        chromosomes.add(new Chromosome(Arrays.asList(4, 5, 6)));
+        chromosomes.add(new Chromosome(Arrays.asList(c0, c1, c2)));
+        chromosomes.add(new Chromosome(Arrays.asList(c1, c2, c3)));
+        chromosomes.add(new Chromosome(Arrays.asList(c4, c5, c6)));
 
         when(random.nextInt(24)).thenReturn(10);
 
         RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection(chromosomes, random);
-        assertEquals(Arrays.asList(4, 5, 6), rouletteWheelSelection.selection().getValues());
+        assertEquals(Arrays.asList(c4, c5, c6), rouletteWheelSelection.selection().getValues());
         verify(random, times(1)).nextInt(24);
     }
 
     @Test
     public void deveRetornarCromossomoCasoRSejaIgualSomatoriaMaxima() throws ChromosomeNotFoundException {
+
+        Component c0 = new Component(0.0, 4.0, 0.0);
+        Component c1 = new Component(0.0, 4.0, 1.0);
+        Component c2 = new Component(0.0, 4.0, 2.0);
+
+        Component c3 = new Component(0.0, 4.0, 3.0);
+        Component c4 = new Component(0.0, 4.0, 4.0);
+        Component c5 = new Component(0.0, 4.0, 5.0);
+        Component c6 = new Component(0.0, 4.0, 6.0);
+
         List<Chromosome> chromosomes = new ArrayList<Chromosome>();
-        chromosomes.add(new Chromosome(Arrays.asList(0, 1, 2)));
-        chromosomes.add(new Chromosome(Arrays.asList(1, 2, 3)));
-        chromosomes.add(new Chromosome(Arrays.asList(4, 5, 6)));
+        chromosomes.add(new Chromosome(Arrays.asList(c0, c1, c2)));
+        chromosomes.add(new Chromosome(Arrays.asList(c1, c2, c3)));
+        chromosomes.add(new Chromosome(Arrays.asList(c4, c5, c6)));
 
         when(random.nextInt(24)).thenReturn(24);
 
         RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection(chromosomes, random);
-        assertEquals(Arrays.asList(4, 5, 6), rouletteWheelSelection.selection().getValues());
+        assertEquals(Arrays.asList(c4, c5, c6), rouletteWheelSelection.selection().getValues());
         verify(random, times(1)).nextInt(24);
     }
 

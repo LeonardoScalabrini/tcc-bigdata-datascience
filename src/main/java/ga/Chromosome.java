@@ -1,22 +1,15 @@
 package ga;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Chromosome implements Comparable<Chromosome>{
 
-    private List<Integer> values = new ArrayList<Integer>();
+    private final List<Component> values;
 
     private final Integer fitness;
 
-    public Chromosome(){
-        for (int i = 0; i < 3; i++) {
-            values.add(Math.random() >= 0.5 ? 1 : 0);
-        }
-        this.fitness = fitness();
-    }
-
-    public Chromosome(List<Integer> values){
+    public Chromosome(List<Component> values){
         this.values = values;
         this.fitness = fitness();
     }
@@ -25,8 +18,8 @@ public class Chromosome implements Comparable<Chromosome>{
         return fitness;
     }
 
-    public List<Integer> getValues(){
-        return values;
+    public List<Component> getValues(){
+        return Collections.unmodifiableList(values);
     }
 
     public int compareTo(Chromosome outherChromosome) {
@@ -41,8 +34,8 @@ public class Chromosome implements Comparable<Chromosome>{
 
     private Integer fitness() {
         Integer aptidao = 0;
-        for (Integer gene : values) {
-            aptidao += gene;
+        for (Component c : values) {
+            aptidao += c.value.intValue();
         }
         return aptidao;
     }

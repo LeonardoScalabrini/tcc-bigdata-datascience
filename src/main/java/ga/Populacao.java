@@ -14,7 +14,7 @@ public class Populacao {
         this.tamanho = tamanho;
 
         for (int i = 0; i < tamanho; i++) {
-            chromosomes.add(new Chromosome());
+            //chromosomes.add(new Chromosome());
         }
     }
 
@@ -44,16 +44,16 @@ public class Populacao {
             Chromosome chromosomePai = chromosomes.get(Math.round(numeroPais - 1));
             Chromosome chromosomeMae = chromosomes.get(Math.round(numeroPais - 1));
 
-            Integer genePai = chromosomePai.getValues().get(Math.round(chromosomePai.getValues().size() - 1));
-            Integer geneMae = chromosomeMae.getValues().get(Math.round(chromosomeMae.getValues().size() - 1));
+            //Integer genePai = chromosomePai.getValues().get(Math.round(chromosomePai.getValues().size() - 1));
+            //Integer geneMae = chromosomeMae.getValues().get(Math.round(chromosomeMae.getValues().size() - 1));
 
             List<Integer> cromossomoFilho = new ArrayList<Integer>();
-            cromossomoFilho.add(genePai);
-            cromossomoFilho.add(geneMae);
+            //cromossomoFilho.add(genePai);
+            //cromossomoFilho.add(geneMae);
             cromossomoFilho.add(Math.random() >= 0.5 ? 1 : 0);
             cromossomoFilho.add(Math.random() >= 0.5 ? 1 : 0);
             Collections.shuffle(cromossomoFilho);
-            filhos.add(new Chromosome(cromossomoFilho));
+            //filhos.add(new Chromosome(cromossomoFilho));
         }
 
         chromosomes.addAll(filhos);
@@ -62,8 +62,8 @@ public class Populacao {
     public void mutacao(){
         for (int i = 0; i < Math.round(tamanho * 0.1); i++) {
             Chromosome chromosome = chromosomes.get(Math.round(chromosomes.size() - 1));
-            List<Integer> cromossomo = chromosome.getValues();
-            cromossomo.add(Math.round(3), Math.random() >= 0.5 ? 1 : 0);
+            //List<Integer> cromossomo = chromosome.getValues();
+            //cromossomo.add(Math.round(3), Math.random() >= 0.5 ? 1 : 0);
         }
     }
 

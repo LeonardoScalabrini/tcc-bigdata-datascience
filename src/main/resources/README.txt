@@ -2,7 +2,7 @@
 
 **GA**
 
-*Eletismo dois individuos*
+*Eletismo dois individuos*--FEITO
 Copia os dois, ou poucos melhores individuos e o restante da população é gerado normalmente
 
 *K, N, A, B individuo*
@@ -13,13 +13,13 @@ https://www.obitko.com/tutorials/genetic-algorithms/portuguese/selection.php
 [Seleção] Gere um número aleatório no intervalo (0,S) - r.
 [Repetição] Percorra toda a população e some a adequação de 0 - soma s. Quando a soma s for maior que r, pare e retorne o cromossoma atual.
 
-*Crossover aritimetico*
+*Crossover aritimetico*--FEITO
 Outro operador para representação real é o crossover aritmético definido como uma combinação linear de dois vetores (cromossomos): sejam x1 e x2 dois indivíduos selecionados para crossover, então os dois filhos resultantes serão
 `x1 = ax1 + (1 − a)x2
 `x2 = (1 − a)x1 + ax2
 , onde a é um número aleatório pertencente ao intervalo [0,1]
 
-*Mutação uniforme*
+*Mutação uniforme*--FEITO
 um outro operador importante para problemas em que os indivíduos empregam
 codificação em ponto flutuante é a mutação uniforme (MICHALEWICZ ,1996). Este
 operador seleciona aleatoriamente um componente k ∈ {1, 2, …, n} do
@@ -27,6 +27,8 @@ cromossomo x = [x1 … xk … xn] e gera um indivíduo [ ] k n ′ = x x′ x 
 é um número aleatório (com distribuição de probabilidade uniforme) amostrado no
 intervalo [LB, UB] e LB e UB são, respectivamente, os limites inferior e superior
 da variável xk.
+
+*GA*
 
 *Aptidao Jaccard*--FEITO
 

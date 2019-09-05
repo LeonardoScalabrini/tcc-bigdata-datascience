@@ -1,6 +1,7 @@
 package ga;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,22 +15,12 @@ public class ElitismTwoIndividuals {
 
     public List<Chromosome> elect() throws ChromosomeNotFoundException {
 
-        if(chromosomes == null)
+        if(chromosomes == null || chromosomes.size() < 2)
             throw new ChromosomeNotFoundException();
 
         List<Chromosome> copyChromosomes = new ArrayList<Chromosome>(chromosomes);
         Collections.sort(copyChromosomes);
 
-        List<Chromosome> result = new ArrayList<Chromosome>();
-        int count = 0;
-        for (Chromosome chromosome : copyChromosomes) {
-            result.add(chromosome);
-            count++;
-
-            if(count == 2)
-                return result;
-        }
-
-        throw new ChromosomeNotFoundException();
+        return Arrays.asList(copyChromosomes.get(0), copyChromosomes.get(1));
     }
 }
