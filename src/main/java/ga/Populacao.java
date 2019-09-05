@@ -24,7 +24,7 @@ public class Populacao {
         List<Chromosome> sobreviventes = new ArrayList<Chromosome>();
         for (Chromosome chromosome : chromosomes) {
 
-            double aptidao = chromosome.fitness().doubleValue() / 5;
+            double aptidao = chromosome.getFitness().doubleValue() / 5;
             double random = Math.random();
 
             if(aptidao >= random)
@@ -69,7 +69,7 @@ public class Populacao {
 
     public void resultado(){
         for (Chromosome chromosome : chromosomes) {
-            System.out.println(chromosome.fitness());
+            System.out.println(chromosome.getFitness());
         }
     }
 }

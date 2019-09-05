@@ -7,7 +7,7 @@ Copia os dois, ou poucos melhores individuos e o restante da população é gera
 
 *K, N, A, B individuo*
 
-*Seleção roda de roleta*
+*Seleção roda de roleta*--FEITO
 https://www.obitko.com/tutorials/genetic-algorithms/portuguese/selection.php
 [Soma] Calcule a soma dos valores de adequação de todos os cromossomas da população - soma S.
 [Seleção] Gere um número aleatório no intervalo (0,S) - r.
