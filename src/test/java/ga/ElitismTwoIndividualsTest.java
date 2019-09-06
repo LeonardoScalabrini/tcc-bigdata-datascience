@@ -21,8 +21,15 @@ public class ElitismTwoIndividualsTest {
         Component c4 = new Component(0.0, 4.0, 4.0);
         Component c5 = new Component(0.0, 4.0, 5.0);
 
-        List<Chromosome> chromosomeList = Arrays.asList(new Chromosome(Arrays.asList(c0, c1, c2)), new Chromosome(Arrays.asList(c3, c4, c5)));
-        ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals(chromosomeList);
+        List<Fitness> fitnessList = Arrays.asList(
+                new Fitness(new Chromosome(Arrays.asList(c0, c1, c2))),
+                new Fitness(new Chromosome(Arrays.asList(c3, c4, c5))));
+
+        for (Fitness fitness : fitnessList) {
+            fitness.run();
+        }
+
+        ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals(fitnessList);
         List<Chromosome> twoIndividuals = elitismTwoIndividuals.elect();
         assertEquals(Arrays.asList(c3, c4, c5), twoIndividuals.get(0).getValues());
         assertEquals(Arrays.asList(c0, c1, c2), twoIndividuals.get(1).getValues());
@@ -39,8 +46,16 @@ public class ElitismTwoIndividualsTest {
         Component c4 = new Component(0.0, 4.0, 4.0);
         Component c5 = new Component(0.0, 4.0, 5.0);
 
-        List<Chromosome> chromosomeList = Arrays.asList(new Chromosome(Arrays.asList(c0, c1, c2)), new Chromosome(Arrays.asList(c3, c4, c5)), new Chromosome(Arrays.asList(c3, c1, c2)));
-        ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals(chromosomeList);
+        List<Fitness> fitnessList = Arrays.asList(
+                new Fitness(new Chromosome(Arrays.asList(c0, c1, c2))),
+                new Fitness(new Chromosome(Arrays.asList(c3, c4, c5))),
+                new Fitness(new Chromosome(Arrays.asList(c3, c1, c2))));
+
+        for (Fitness fitness : fitnessList) {
+            fitness.run();
+        }
+
+        ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals(fitnessList);
         List<Chromosome> twoIndividuals = elitismTwoIndividuals.elect();
         assertEquals(Arrays.asList(c3, c4, c5), twoIndividuals.get(0).getValues());
         assertEquals(Arrays.asList(c3, c1, c2), twoIndividuals.get(1).getValues());
@@ -53,15 +68,15 @@ public class ElitismTwoIndividualsTest {
         Component c1 = new Component(0.0, 4.0, 1.0);
         Component c2 = new Component(0.0, 4.0, 2.0);
 
-        List<Chromosome> chromosomeList = Arrays.asList(new Chromosome(Arrays.asList(c0, c1, c2)));
-        ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals(chromosomeList);
+        List<Fitness> fitnessList = Arrays.asList(new Fitness(new Chromosome(Arrays.asList(c0, c1, c2))));
+        ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals(fitnessList);
         elitismTwoIndividuals.elect();
     }
 
     @Test(expected = ChromosomeNotFoundException.class)
     public void deveRetornarErroCasoNaoTenhaIndividuo() throws ChromosomeNotFoundException{
-        List<Chromosome> chromosomeList = Collections.EMPTY_LIST;
-        ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals(chromosomeList);
+        List<Fitness> fitnessList = Collections.EMPTY_LIST;
+        ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals(fitnessList);
         elitismTwoIndividuals.elect();
     }
 

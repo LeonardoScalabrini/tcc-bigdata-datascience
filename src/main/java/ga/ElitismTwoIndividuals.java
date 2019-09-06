@@ -7,20 +7,20 @@ import java.util.List;
 
 public class ElitismTwoIndividuals {
 
-    private final List<Chromosome> chromosomes;
+    private final List<Fitness> fitnesses;
 
-    public ElitismTwoIndividuals(List<Chromosome> chromosomes) {
-        this.chromosomes = chromosomes;
+    public ElitismTwoIndividuals(List<Fitness> fitnesses) {
+        this.fitnesses = fitnesses;
     }
 
     public List<Chromosome> elect() throws ChromosomeNotFoundException {
 
-        if(chromosomes == null || chromosomes.size() < 2)
+        if(fitnesses == null || fitnesses.size() < 2)
             throw new ChromosomeNotFoundException();
 
-        List<Chromosome> copyChromosomes = new ArrayList<Chromosome>(chromosomes);
-        Collections.sort(copyChromosomes);
+        List<Fitness> copyFitnesses = new ArrayList<Fitness>(fitnesses);
+        Collections.sort(copyFitnesses);
 
-        return Arrays.asList(copyChromosomes.get(0), copyChromosomes.get(1));
+        return Arrays.asList(copyFitnesses.get(0).chromosome, copyFitnesses.get(1).chromosome);
     }
 }

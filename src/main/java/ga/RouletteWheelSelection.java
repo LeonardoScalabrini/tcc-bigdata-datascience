@@ -5,28 +5,28 @@ import java.util.Random;
 
 public class RouletteWheelSelection {
 
-    private final List<Chromosome> chromosomes;
+    private final List<Fitness> fitnesses;
     private final Random random;
-    private final int sumFitness;
+    private final Double sumFitness;
 
-    public RouletteWheelSelection(List<Chromosome> chromosomes, Random random) {
-        this.chromosomes = chromosomes;
+    public RouletteWheelSelection(List<Fitness> fitnesses, Random random) {
+        this.fitnesses = fitnesses;
         this.random = random;
-        int sum = 0;
-        for (Chromosome chromosome : chromosomes) {
-            sum += chromosome.getFitness();
+        Double sum = 0.0;
+        for (Fitness fitness : this.fitnesses) {
+            sum += fitness.getValue();
         }
         this.sumFitness = sum;
     }
 
     public Chromosome selection() throws ChromosomeNotFoundException{
-        Integer r = random.nextInt(sumFitness);
-        Integer s = 0;
-        for (Chromosome chromosome : chromosomes) {
-            s += chromosome.getFitness();
+        Integer r = random.nextInt(sumFitness.intValue());
+        Double s = 0.0;
+        for (Fitness fitness : fitnesses) {
+            s += fitness.getValue();
 
             if (s >= r) {
-                return chromosome;
+                return fitness.chromosome;
             }
         }
 
