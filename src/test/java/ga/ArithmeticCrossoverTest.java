@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -17,31 +18,59 @@ public class ArithmeticCrossoverTest {
 
     @Mock
     private Random random;
+    private Chromosome chromosome1;
+    private Chromosome chromosome2;
 
     @Before
     public void init(){
+        Component c0 = new Component(0.0, 4.0, 0.0);
+        Component c1 = new Component(0.0, 4.0, 1.0);
+        Component c2 = new Component(0.0, 4.0, 2.0);
+        Component c3 = new Component(0.0, 4.0, 3.0);
+
+        this.chromosome1 = new Chromosome(Arrays.asList(c0, c1, c2));
+        this.chromosome2 = new Chromosome(Arrays.asList(c0, c1, c3));
+
         when(random.nextDouble()).thenReturn(new Double(.5));
+        when(random.nextInt(anyInt())).thenReturn(2);
     }
 
     @Test
     public void deveRetornarCrossover() throws ChromosomeNotFoundException{
         ArithmeticCrossover arithmeticCrossover = new ArithmeticCrossover();
-        List<Double> crossover = arithmeticCrossover.crossover(0.5, 0.5, random);
-        assertEquals(0.5, crossover.get(0).doubleValue(), 0.0001);
-        assertEquals(0.5, crossover.get(1).doubleValue(), 0.0001);
+
+        Component c0 = new Component(0.0, 4.0, 0.0);
+        Component c1 = new Component(0.0, 4.0, 1.0);
+        Component c2 = new Component(0.0, 4.0, 2.0);
+        Component c3 = new Component(0.0, 4.0, 3.0);
+
+        Chromosome chromosome1 = new Chromosome(Arrays.asList(c0, c1, c2));
+        Chromosome chromosome2 = new Chromosome(Arrays.asList(c0, c1, c3));
+
+        List<Chromosome> chromosomes = arithmeticCrossover.crossover(chromosome1, chromosome2, random);
+
+        assertEquals(c0.value, chromosomes.get(0).getValues().get(0).value, 0.0001);
+        assertEquals(c1.value, chromosomes.get(0).getValues().get(1).value, 0.0001);
+        assertEquals(2.5, chromosomes.get(0).getValues().get(2).value, 0.0001);
+
+        assertEquals(c0.value, chromosomes.get(1).getValues().get(0).value, 0.0001);
+        assertEquals(c1.value, chromosomes.get(1).getValues().get(1).value, 0.0001);
+        assertEquals(2.5, chromosomes.get(1).getValues().get(2).value, 0.0001);
+
         verify(random, times(1)).nextDouble();
+        verify(random, times(1)).nextInt(anyInt());
     }
 
     @Test(expected = ChromosomeNotFoundException.class)
     public void deveRetornarErroCasoX1sejaNulo() throws ChromosomeNotFoundException{
         ArithmeticCrossover arithmeticCrossover = new ArithmeticCrossover();
-        arithmeticCrossover.crossover(null, 0.5, random);
+        arithmeticCrossover.crossover(null, chromosome2, random);
     }
 
     @Test(expected = ChromosomeNotFoundException.class)
     public void deveRetornarErroCasoX2sejaNulo() throws ChromosomeNotFoundException{
         ArithmeticCrossover arithmeticCrossover = new ArithmeticCrossover();
-        arithmeticCrossover.crossover(0.5, null, random);
+        arithmeticCrossover.crossover(chromosome1, null, random);
     }
 
     @Test(expected = ChromosomeNotFoundException.class)

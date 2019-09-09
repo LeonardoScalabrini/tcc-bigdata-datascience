@@ -25,15 +25,12 @@ public class RouletteWheelSelectionTest {
         Component c2 = new Component(0.0, 4.0, 2.0);
 
         List<Fitness> fitnesses = new ArrayList<Fitness>();
-        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c0, c1, c2))));
+        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c0, c1, c2)), 3.0));
 
         when(random.nextInt(3)).thenReturn(2);
 
-        for (Fitness fitness : fitnesses) {
-            fitness.run();
-        }
-
-        RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection(fitnesses, random);
+        RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection();
+        rouletteWheelSelection.sum(fitnesses, random);
         assertEquals(Arrays.asList(c0, c1, c2), rouletteWheelSelection.selection().getValues());
         verify(random, times(1)).nextInt(3);
     }
@@ -51,17 +48,14 @@ public class RouletteWheelSelectionTest {
         Component c6 = new Component(0.0, 4.0, 6.0);
 
         List<Fitness> fitnesses = new ArrayList<Fitness>();
-        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c0, c1, c2))));
-        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c1, c2, c3))));
-        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c4, c5, c6))));
+        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c0, c1, c2)), 3.0));
+        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c1, c2, c3)), 6.0));
+        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c4, c5, c6)), 15.0));
 
         when(random.nextInt(24)).thenReturn(10);
 
-        for (Fitness fitness : fitnesses) {
-            fitness.run();
-        }
-
-        RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection(fitnesses, random);
+        RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection();
+        rouletteWheelSelection.sum(fitnesses, random);
         assertEquals(Arrays.asList(c4, c5, c6), rouletteWheelSelection.selection().getValues());
         verify(random, times(1)).nextInt(24);
     }
@@ -79,17 +73,14 @@ public class RouletteWheelSelectionTest {
         Component c6 = new Component(0.0, 4.0, 6.0);
 
         List<Fitness> fitnesses = new ArrayList<Fitness>();
-        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c0, c1, c2))));
-        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c1, c2, c3))));
-        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c4, c5, c6))));
+        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c0, c1, c2)), 3.0));
+        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c1, c2, c3)), 6.0));
+        fitnesses.add(new Fitness(new Chromosome(Arrays.asList(c4, c5, c6)), 15.0));
 
         when(random.nextInt(24)).thenReturn(24);
 
-        for (Fitness fitness : fitnesses) {
-            fitness.run();
-        }
-
-        RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection(fitnesses, random);
+        RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection();
+        rouletteWheelSelection.sum(fitnesses, random);
         assertEquals(Arrays.asList(c4, c5, c6), rouletteWheelSelection.selection().getValues());
         verify(random, times(1)).nextInt(24);
     }
@@ -97,15 +88,12 @@ public class RouletteWheelSelectionTest {
     @Test(expected = ChromosomeNotFoundException.class)
     public void deveRetornarCromossomoNaoEncontrado() throws ChromosomeNotFoundException {
         List<Fitness> fitnesses = new ArrayList<Fitness>();
-        fitnesses.add(new Fitness(new Chromosome(Collections.EMPTY_LIST)));
+        fitnesses.add(new Fitness(new Chromosome(Collections.EMPTY_LIST), 0.0));
 
         when(random.nextInt(0)).thenReturn(2);
 
-        for (Fitness fitness : fitnesses) {
-            fitness.run();
-        }
-
-        RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection(fitnesses, random);
+        RouletteWheelSelection rouletteWheelSelection = new RouletteWheelSelection();
+        rouletteWheelSelection.sum(fitnesses, random);
         assertNull(rouletteWheelSelection.selection());
         verify(random, times(1)).nextInt(0);
     }

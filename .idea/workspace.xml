@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e72d8981-d78a-4fe7-ac7d-913aa1917475" name="Default Changelist" comment="" />
+    <list default="true" id="e72d8981-d78a-4fe7-ac7d-913aa1917475" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/ElitismCrossoverMutationPopulationFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/FitnessExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/FitnessFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/FitnessParallelFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/PopulationFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/StartPopulationFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ga/ElitismCrossoverMutationPopulationFactoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ga/FitnessParallelFactoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ga/GATest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ga/RandomComponentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/ArithmeticCrossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/ArithmeticCrossover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/ElitismTwoIndividuals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/ElitismTwoIndividuals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/Fitness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/Fitness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/GA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/GA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/RandomComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/RandomComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/RouletteWheelSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/RouletteWheelSelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ga/ArithmeticCrossoverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ga/ArithmeticCrossoverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ga/ElitismTwoIndividualsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ga/ElitismTwoIndividualsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ga/RouletteWheelSelectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ga/RouletteWheelSelectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ga/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jgibblda/LDA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jgibblda/LDA.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -10,32 +37,36 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="202" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="tcc-bigdata-datascience" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/jaccard/Jaccard.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ga/GATest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+            <state relative-caret-position="256">
+              <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#803#812#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/jaccard/JaccardTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/README.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#938#947#0" expanded="true" />
-                <element signature="e#1191#1200#0" expanded="true" />
-                <element signature="e#1400#1409#0" expanded="true" />
-                <element signature="e#1432#1441#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -45,9 +76,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
+        <option value="Interface" />
         <option value="JUnit4 Test Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>populationSize</find>
+      <find>new</find>
+      <find>elitismTwoIndividuals</find>
+      <find>rouletteWheelSelection</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -56,6 +100,30 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/jaccard/JaccardTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/jaccard/Jaccard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/ArithmeticCrossover.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ga/ArithmeticCrossoverTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/ElitismTwoIndividuals.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/Fitness.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/FitnessExecutor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/FitnessCollector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/RouletteWheelSelection.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ga/ElitismTwoIndividualsTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ga/RouletteWheelSelectionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/PopulationFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/RouletteAndElitismPopulationFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/FitnessFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/ElitismCrossoverMutationPopulationFactory.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ga/ElitismCrossoverMutationPopulationFactoryTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/FitnessParallelFactory.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ga/FitnessParallelFactoryTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/Component.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ga/FitnessTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/StartPopulationFactory.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ga/GATest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/GA.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ga/RandomComponent.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ga/RandomComponentTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/README.txt" />
       </list>
     </option>
   </component>
@@ -108,6 +176,13 @@
               <item name="tcc-bigdata-datascience" type="b2602c69:ProjectViewProjectNode" />
               <item name="tcc-bigdata-datascience" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tcc-bigdata-datascience" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tcc-bigdata-datascience" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -123,7 +198,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jaccard" type="462c0819:PsiDirectoryNode" />
+              <item name="ga" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tcc-bigdata-datascience" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tcc-bigdata-datascience" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -132,6 +214,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567608888731" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -142,17 +225,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="ga" />
       <recent name="jaccard" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -167,93 +251,84 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.JaccardTest">
-    <configuration name="JaccardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in tcc-bigdata-datascience">
+    <configuration name="All in tcc-bigdata-datascience" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tcc-bigdata-datascience" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArithmeticCrossoverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tcc-bigdata-datascience" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jaccard.*" />
+          <option name="PATTERN" value="ga.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="jaccard" />
-      <option name="MAIN_CLASS_NAME" value="jaccard.JaccardTest" />
+      <option name="PACKAGE_NAME" value="ga" />
+      <option name="MAIN_CLASS_NAME" value="ga.ArithmeticCrossoverTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JaccardTest.deveCalcularSemelhanca" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ElitismCrossoverMutationPopulationFactoryTest.deveCriarPopulacao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tcc-bigdata-datascience" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jaccard.*" />
+          <option name="PATTERN" value="ga.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="jaccard" />
-      <option name="MAIN_CLASS_NAME" value="jaccard.JaccardTest" />
-      <option name="METHOD_NAME" value="deveCalcularSemelhanca" />
+      <option name="PACKAGE_NAME" value="ga" />
+      <option name="MAIN_CLASS_NAME" value="ga.ElitismCrossoverMutationPopulationFactoryTest" />
+      <option name="METHOD_NAME" value="deveCriarPopulacao" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JaccardTest.deveCalcularSemelhancaMeio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FitnessParallelFactoryTest.deveExecutarAptidao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tcc-bigdata-datascience" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jaccard.*" />
+          <option name="PATTERN" value="ga.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="jaccard" />
-      <option name="MAIN_CLASS_NAME" value="jaccard.JaccardTest" />
-      <option name="METHOD_NAME" value="deveCalcularSemelhancaMeio" />
+      <option name="PACKAGE_NAME" value="ga" />
+      <option name="MAIN_CLASS_NAME" value="ga.FitnessParallelFactoryTest" />
+      <option name="METHOD_NAME" value="deveExecutarAptidao" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JaccardTest.deveCalcularSemelhancaZeroCaseASejaNulo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RandomComponentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tcc-bigdata-datascience" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jaccard.*" />
+          <option name="PATTERN" value="ga.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="jaccard" />
-      <option name="MAIN_CLASS_NAME" value="jaccard.JaccardTest" />
-      <option name="METHOD_NAME" value="deveCalcularSemelhancaZeroCaseASejaNulo" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JaccardTest.deveCalcularSemelhancaZeroCaseAeBSejaVazio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tcc-bigdata-datascience" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="jaccard.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="jaccard" />
-      <option name="MAIN_CLASS_NAME" value="jaccard.JaccardTest" />
-      <option name="METHOD_NAME" value="deveCalcularSemelhancaZeroCaseAeBSejaVazio" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="ga" />
+      <option name="MAIN_CLASS_NAME" value="ga.RandomComponentTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.JaccardTest" />
-        <item itemvalue="JUnit.JaccardTest.deveCalcularSemelhancaZeroCaseASejaNulo" />
-        <item itemvalue="JUnit.JaccardTest.deveCalcularSemelhancaZeroCaseAeBSejaVazio" />
-        <item itemvalue="JUnit.JaccardTest.deveCalcularSemelhancaMeio" />
-        <item itemvalue="JUnit.JaccardTest.deveCalcularSemelhanca" />
+        <item itemvalue="JUnit.All in tcc-bigdata-datascience" />
+        <item itemvalue="JUnit.RandomComponentTest" />
+        <item itemvalue="JUnit.FitnessParallelFactoryTest.deveExecutarAptidao" />
+        <item itemvalue="JUnit.ElitismCrossoverMutationPopulationFactoryTest.deveCriarPopulacao" />
+        <item itemvalue="JUnit.ArithmeticCrossoverTest" />
       </list>
     </recent_temporary>
   </component>
@@ -271,58 +346,60 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JaccardTest - 2019.09.04 at 11h 29m 35s.xml">
-      <configuration name="JaccardTest" configurationId="JUnit" />
+    <history-entry file="FitnessParallelFactoryTest_deveExecutarAptidao - 2019.09.08 at 23h 36m 45s.xml">
+      <configuration name="FitnessParallelFactoryTest.deveExecutarAptidao" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JaccardTest - 2019.09.04 at 11h 30m 03s.xml">
-      <configuration name="JaccardTest" configurationId="JUnit" />
+    <history-entry file="FitnessParallelFactoryTest_deveExecutarAptidao - 2019.09.08 at 23h 36m 48s.xml">
+      <configuration name="FitnessParallelFactoryTest.deveExecutarAptidao" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JaccardTest - 2019.09.04 at 11h 30m 58s.xml">
-      <configuration name="JaccardTest" configurationId="JUnit" />
+    <history-entry file="All_in_tcc-bigdata-datascience - 2019.09.08 at 23h 37m 50s.xml">
+      <configuration name="All in tcc-bigdata-datascience" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JaccardTest - 2019.09.04 at 11h 31m 54s.xml">
-      <configuration name="JaccardTest" configurationId="JUnit" />
+    <history-entry file="All_in_tcc-bigdata-datascience - 2019.09.08 at 23h 38m 59s.xml">
+      <configuration name="All in tcc-bigdata-datascience" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JaccardTest_deveCalcularSemelhancaZeroCaseAeBSejaVazio - 2019.09.04 at 11h 39m 53s.xml">
-      <configuration name="JaccardTest.deveCalcularSemelhancaZeroCaseAeBSejaVazio" configurationId="JUnit" />
+    <history-entry file="All_in_tcc-bigdata-datascience - 2019.09.09 at 00h 20m 51s.xml">
+      <configuration name="All in tcc-bigdata-datascience" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JaccardTest_deveCalcularSemelhancaZeroCaseAeBSejaVazio - 2019.09.04 at 11h 44m 18s.xml">
-      <configuration name="JaccardTest.deveCalcularSemelhancaZeroCaseAeBSejaVazio" configurationId="JUnit" />
+    <history-entry file="All_in_tcc-bigdata-datascience - 2019.09.09 at 00h 23m 22s.xml">
+      <configuration name="All in tcc-bigdata-datascience" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JaccardTest_deveCalcularSemelhancaZeroCaseASejaNulo - 2019.09.04 at 11h 45m 16s.xml">
-      <configuration name="JaccardTest.deveCalcularSemelhancaZeroCaseASejaNulo" configurationId="JUnit" />
+    <history-entry file="All_in_tcc-bigdata-datascience - 2019.09.09 at 00h 23m 47s.xml">
+      <configuration name="All in tcc-bigdata-datascience" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JaccardTest_deveCalcularSemelhancaZeroCaseASejaNulo - 2019.09.04 at 11h 46m 39s.xml">
-      <configuration name="JaccardTest.deveCalcularSemelhancaZeroCaseASejaNulo" configurationId="JUnit" />
+    <history-entry file="RandomComponentTest - 2019.09.09 at 00h 39m 49s.xml">
+      <configuration name="RandomComponentTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JaccardTest - 2019.09.04 at 11h 46m 45s.xml">
-      <configuration name="JaccardTest" configurationId="JUnit" />
+    <history-entry file="RandomComponentTest - 2019.09.09 at 00h 40m 13s.xml">
+      <configuration name="RandomComponentTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JaccardTest - 2019.09.04 at 11h 47m 44s.xml">
-      <configuration name="JaccardTest" configurationId="JUnit" />
+    <history-entry file="All_in_tcc-bigdata-datascience - 2019.09.09 at 00h 40m 43s.xml">
+      <configuration name="All in tcc-bigdata-datascience" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1613" height="1025" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24984501" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.25358167" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Favorites" order="6" sideWeight="0.501002" side_tool="true" weight="0.25358167" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32899022" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995657" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32839838" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39838493" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32899022" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32839838" />
+      <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.3295129" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -332,6 +409,35 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498998" weight="0.25358167" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.501002" side_tool="true" weight="0.25358167" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32839838" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39838493" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32839838" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3295129" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout-to-restore>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -342,8 +448,35 @@
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ga/ArithmeticCrossoverTest.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ga/ElitismCrossoverMutationPopulationFactory.java</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ga/FitnessParallelFactory.java</url>
+          <line>10</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ga/FitnessParallelFactoryTest.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/tcc_bigdata_datascience$All_in_tcc_bigdata_datascience.ic" NAME="All in tcc-bigdata-datascience Coverage Results" MODIFIED="1568000420171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Model.java" />
@@ -352,9 +485,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Conversion.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Document.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Estimator.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/resources/teste.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ga/Populacao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ga/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/LDADataset.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/LDAWithOutCmdOption.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/LDACmdOption.java" />
@@ -367,7 +498,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/jaccard/Jaccard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="323">
           <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -377,15 +508,243 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/jaccard/JaccardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
+        <state relative-caret-position="542">
           <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#938#947#0" expanded="true" />
-            <element signature="e#1191#1200#0" expanded="true" />
-            <element signature="e#1400#1409#0" expanded="true" />
-            <element signature="e#1432#1441#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/Chromosome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="e#182#183#0" expanded="true" />
+            <element signature="e#218#219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/ArithmeticCrossover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#990#1001#0" expanded="true" />
+            <element signature="e#1201#1212#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/ElitismTwoIndividuals.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/FitnessCollector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/FitnessExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/RouletteWheelSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.2/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="382" column="12" selection-start-line="382" selection-start-column="12" selection-end-line="382" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/FitnessFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="111" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ga/ElitismTwoIndividualsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="62" column="108" selection-start-line="62" selection-start-column="108" selection-end-line="62" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ga/UniformMutationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/ElitismCrossoverMutationPopulationFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#286#298#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.13-beta-3/junit-4.13-beta-3.jar!/org/junit/Test.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ga/ElitismCrossoverMutationPopulationFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-374">
+          <caret line="17" selection-start-line="17" selection-end-line="17" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ga/FitnessParallelFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="39" column="38" lean-forward="true" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ga/FitnessTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/PopulationFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="112" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/StartPopulationFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ga/ArithmeticCrossoverTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/FitnessParallelFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#394#403#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
+            <element signature="e#1022#1023#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="57" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ga/RouletteWheelSelectionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/RandomComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ga/RandomComponentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#408#409#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/Fitness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ga/GA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/teste.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ga/GATest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#803#812#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
         </state>
       </provider>
     </entry>

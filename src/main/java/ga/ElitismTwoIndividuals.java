@@ -7,13 +7,7 @@ import java.util.List;
 
 public class ElitismTwoIndividuals {
 
-    private final List<Fitness> fitnesses;
-
-    public ElitismTwoIndividuals(List<Fitness> fitnesses) {
-        this.fitnesses = fitnesses;
-    }
-
-    public List<Chromosome> elect() throws ChromosomeNotFoundException {
+    public List<Chromosome> elect(List<Fitness> fitnesses) throws ChromosomeNotFoundException {
 
         if(fitnesses == null || fitnesses.size() < 2)
             throw new ChromosomeNotFoundException();

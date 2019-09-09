@@ -5,16 +5,16 @@ import java.util.Random;
 
 public class RouletteWheelSelection {
 
-    private final List<Fitness> fitnesses;
-    private final Random random;
-    private final Double sumFitness;
+    private List<Fitness> fitnesses;
+    private Random random;
+    private Double sumFitness;
 
-    public RouletteWheelSelection(List<Fitness> fitnesses, Random random) {
+    public void sum(List<Fitness> fitnesses, Random random) {
         this.fitnesses = fitnesses;
         this.random = random;
         Double sum = 0.0;
         for (Fitness fitness : this.fitnesses) {
-            sum += fitness.getValue();
+            sum += fitness.value;
         }
         this.sumFitness = sum;
     }
@@ -23,7 +23,7 @@ public class RouletteWheelSelection {
         Integer r = random.nextInt(sumFitness.intValue());
         Double s = 0.0;
         for (Fitness fitness : fitnesses) {
-            s += fitness.getValue();
+            s += fitness.value;
 
             if (s >= r) {
                 return fitness.chromosome;

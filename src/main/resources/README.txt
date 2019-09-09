@@ -28,7 +28,9 @@ cromossomo x = [x1 … xk … xn] e gera um indivíduo [ ] k n ′ = x x′ x 
 intervalo [LB, UB] e LB e UB são, respectivamente, os limites inferior e superior
 da variável xk.
 
-*GA*
+*Implementar condição na GA
+
+*Implementar min e max para todos os parametros
 
 *Aptidao Jaccard*--FEITO
 

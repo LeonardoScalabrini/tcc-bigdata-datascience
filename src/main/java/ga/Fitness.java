@@ -1,34 +1,23 @@
 package ga;
 
-public class Fitness implements Runnable, Comparable<Fitness>{
+public class Fitness implements Comparable<Fitness>{
 
     public final Chromosome chromosome;
 
-    private Double value;
+    public final Double value;
 
-    public Fitness(Chromosome chromosome) {
+    public Fitness(Chromosome chromosome, Double value) {
         this.chromosome = chromosome;
-    }
-
-    public void run() {
-        Double aptidao = 0.0;
-        for (Component c : chromosome.getValues()) {
-            aptidao += c.value;
-        }
-        this.value = aptidao;
+        this.value = value;
     }
 
     public int compareTo(Fitness outherFitness) {
-        if (this.value > outherFitness.getValue())
+        if (this.value > outherFitness.value)
             return -1;
 
-        if (this.value < outherFitness.getValue())
+        if (this.value < outherFitness.value)
             return 1;
 
         return 0;
-    }
-
-    public Double getValue(){
-        return value;
     }
 }

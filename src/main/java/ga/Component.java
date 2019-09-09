@@ -11,14 +11,4 @@ public class Component {
         this.max = max;
         this.value = value;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Component component = (Component) o;
-        return min.equals(component.min) &&
-                max.equals(component.max) &&
-                value.equals(component.value);
-    }
 }
