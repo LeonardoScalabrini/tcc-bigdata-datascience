@@ -1,6 +1,7 @@
 package ga;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -29,10 +30,22 @@ public class ElitismCrossoverMutationPopulationFactory implements PopulationFact
         newPopulation.addAll(elitismTwoIndividuals.elect(fitnesses));
         rouletteWheelSelection.sum(fitnesses, random);
         for (int r = 2; r < populationSize - 2; r+=2) {
+
             Chromosome c1 = rouletteWheelSelection.selection();
             Chromosome c2 = rouletteWheelSelection.selection();
-            newPopulation.addAll(arithmeticCrossover.crossover(c1, c2, random));
+
+            if (random.nextDouble() <= crossoverProbability){
+                newPopulation.addAll(arithmeticCrossover.crossover(c1, c2, random));
+                continue;
+            }
+
+            newPopulation.addAll(Arrays.asList(c1, c2));
         }
+
+        if (random.nextDouble() <= mutationProbability){
+
+        }
+
         Chromosome c1 = rouletteWheelSelection.selection();
         Chromosome c2 = rouletteWheelSelection.selection();
         newPopulation.add(uniformMutation.mutation(c1, random));
