@@ -36,7 +36,7 @@ public class ArithmeticCrossoverTest {
     }
 
     @Test
-    public void deveRetornarCrossover() throws ChromosomeNotFoundException{
+    public void deveRetornarCrossover(){
         ArithmeticCrossover arithmeticCrossover = new ArithmeticCrossover();
 
         Component c0 = new Component(0.0, 4.0, 0.0);
@@ -61,20 +61,20 @@ public class ArithmeticCrossoverTest {
         verify(random, times(1)).nextInt(anyInt());
     }
 
-    @Test(expected = ChromosomeNotFoundException.class)
-    public void deveRetornarErroCasoX1sejaNulo() throws ChromosomeNotFoundException{
+    @Test(expected = IllegalArgumentException.class)
+    public void deveRetornarErroCasoX1sejaNulo(){
         ArithmeticCrossover arithmeticCrossover = new ArithmeticCrossover();
         arithmeticCrossover.crossover(null, chromosome2, random);
     }
 
-    @Test(expected = ChromosomeNotFoundException.class)
-    public void deveRetornarErroCasoX2sejaNulo() throws ChromosomeNotFoundException{
+    @Test(expected = IllegalArgumentException.class)
+    public void deveRetornarErroCasoX2sejaNulo(){
         ArithmeticCrossover arithmeticCrossover = new ArithmeticCrossover();
         arithmeticCrossover.crossover(chromosome1, null, random);
     }
 
-    @Test(expected = ChromosomeNotFoundException.class)
-    public void deveRetornarErroCasoX1eX2sejaNulo() throws ChromosomeNotFoundException{
+    @Test(expected = IllegalArgumentException.class)
+    public void deveRetornarErroCasoX1eX2sejaNulo(){
         ArithmeticCrossover arithmeticCrossover = new ArithmeticCrossover();
         arithmeticCrossover.crossover(null, null, random);
     }

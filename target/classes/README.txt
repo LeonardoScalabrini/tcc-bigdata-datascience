@@ -46,7 +46,7 @@ GA params
 500 is the number of iterations
 100 is the size of population
 
-*Verificar Random java --FEITO
+*Verificar Random java
 
 *Verificar Exception --FEITO
 

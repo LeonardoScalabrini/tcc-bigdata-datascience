@@ -6,13 +6,12 @@ import java.util.Random;
 
 public class UniformMutation {
 
-    public Chromosome mutation(Chromosome chromosome, Random random) throws ChromosomeNotFoundException{
+    public Chromosome mutation(Chromosome chromosome, Random random) {
 
         if(chromosome == null || chromosome.getValues() == null || chromosome.getValues().isEmpty())
-            throw new ChromosomeNotFoundException();
+            throw new IllegalArgumentException();
 
-        int size = chromosome.getValues().size();
-        int randomNextInt = random.nextInt(size - 1);
+        int randomNextInt = random.nextInt(chromosome.getValues().size());
 
         List<Component> values = new ArrayList<Component>(chromosome.getValues());
 

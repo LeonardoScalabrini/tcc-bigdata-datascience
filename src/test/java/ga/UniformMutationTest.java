@@ -20,7 +20,7 @@ public class UniformMutationTest {
     private Random random;
 
     @Test
-    public void deveCriarCromossomoMutado() throws ChromosomeNotFoundException{
+    public void deveCriarCromossomoMutado(){
 
         Component c0 = new Component(0.0, 4.0, 0.0);
         Component c1 = new Component(0.0, 4.0, 1.0);
@@ -28,7 +28,7 @@ public class UniformMutationTest {
 
         Chromosome chromosome = new Chromosome(Arrays.asList(c0, c1, c2));
 
-        when(random.nextInt(anyInt())).thenReturn(1);
+        when(random.nextInt(any(Integer.class))).thenReturn(1);
         when(random.nextDouble()).thenReturn(0.75);
 
         UniformMutation uniformMutation = new UniformMutation();
@@ -44,13 +44,13 @@ public class UniformMutationTest {
         verify(random, times(1)).nextDouble();
     }
 
-    @Test(expected = ChromosomeNotFoundException.class)
-    public void deveRetornarErroCasoChromosomeEstejaNulo() throws ChromosomeNotFoundException{
+    @Test(expected = IllegalArgumentException.class)
+    public void deveRetornarErroCasoChromosomeEstejaNulo(){
         new UniformMutation().mutation(null, random);
     }
 
-    @Test(expected = ChromosomeNotFoundException.class)
-    public void deveRetornarErroCasoValoresEstejaVazio() throws ChromosomeNotFoundException{
+    @Test(expected = IllegalArgumentException.class)
+    public void deveRetornarErroCasoValoresEstejaVazio(){
         new UniformMutation().mutation(new Chromosome(Collections.EMPTY_LIST), random);
     }
 }

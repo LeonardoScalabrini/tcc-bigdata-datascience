@@ -5,7 +5,7 @@ import java.util.List;
 
 public class AleatoryPopulationFactory implements StartPopulationFactory {
 
-    public List<Chromosome> create(Integer populationSize) throws ChromosomeNotFoundException {
+    public List<Chromosome> create(Integer populationSize){
 
         List<Chromosome> chromosomes = new ArrayList<Chromosome>();
         for (int i = 0; i < populationSize; i++) {

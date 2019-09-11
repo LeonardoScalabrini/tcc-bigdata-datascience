@@ -18,7 +18,7 @@ public class RouletteWheelSelectionTest {
     private Random random;
 
     @Test
-    public void deveRetornarCromossomo() throws ChromosomeNotFoundException {
+    public void deveRetornarCromossomo(){
 
         Component c0 = new Component(0.0, 4.0, 0.0);
         Component c1 = new Component(0.0, 4.0, 1.0);
@@ -36,7 +36,7 @@ public class RouletteWheelSelectionTest {
     }
 
     @Test
-    public void deveRetornarCromossomoPorRoleta() throws ChromosomeNotFoundException {
+    public void deveRetornarCromossomoPorRoleta(){
 
         Component c0 = new Component(0.0, 4.0, 0.0);
         Component c1 = new Component(0.0, 4.0, 1.0);
@@ -61,7 +61,7 @@ public class RouletteWheelSelectionTest {
     }
 
     @Test
-    public void deveRetornarCromossomoCasoRSejaIgualSomatoriaMaxima() throws ChromosomeNotFoundException {
+    public void deveRetornarCromossomoCasoRSejaIgualSomatoriaMaxima(){
 
         Component c0 = new Component(0.0, 4.0, 0.0);
         Component c1 = new Component(0.0, 4.0, 1.0);
@@ -85,8 +85,8 @@ public class RouletteWheelSelectionTest {
         verify(random, times(1)).nextInt(24);
     }
 
-    @Test(expected = ChromosomeNotFoundException.class)
-    public void deveRetornarCromossomoNaoEncontrado() throws ChromosomeNotFoundException {
+    @Test(expected = IllegalArgumentException.class)
+    public void deveRetornarCromossomoNaoEncontrado(){
         List<Fitness> fitnesses = new ArrayList<Fitness>();
         fitnesses.add(new Fitness(new Chromosome(Collections.EMPTY_LIST), 0.0));
 

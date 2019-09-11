@@ -9,18 +9,18 @@ public class ArithmeticCrossover {
 
     private static final double ONE = 1.0;
 
-    public List<Chromosome> crossover(Chromosome c1, Chromosome c2, Random random) throws ChromosomeNotFoundException{
+    public List<Chromosome> crossover(Chromosome c1, Chromosome c2, Random random) throws IllegalArgumentException{
 
         if(c1 == null || c1.getValues() == null || c1.getValues().isEmpty())
-            throw new ChromosomeNotFoundException();
+            throw new IllegalArgumentException();
 
         if(c2 == null || c2.getValues() == null || c2.getValues().isEmpty())
-            throw new ChromosomeNotFoundException();
+            throw new IllegalArgumentException();
 
         Double a = random.nextDouble();
         Double aMinusOne = ONE - a.doubleValue();
 
-        Integer i = random.nextInt(c1.getValues().size() - 1);
+        Integer i = random.nextInt(c1.getValues().size());
         Component x1 = c1.getValues().get(i);
         Component x2 = c2.getValues().get(i);
 

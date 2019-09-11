@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class ElitismTwoIndividualsTest {
 
     @Test
-    public void deveElegerDoisIndividuos() throws ChromosomeNotFoundException{
+    public void deveElegerDoisIndividuos() {
 
         Component c0 = new Component(0.0, 4.0, 0.0);
         Component c1 = new Component(0.0, 4.0, 1.0);
@@ -32,7 +32,7 @@ public class ElitismTwoIndividualsTest {
     }
 
     @Test
-    public void deveElegerDoisIndividuosDeMaisIndividuos() throws ChromosomeNotFoundException{
+    public void deveElegerDoisIndividuosDeMaisIndividuos() {
 
         Component c0 = new Component(0.0, 4.0, 0.0);
         Component c1 = new Component(0.0, 4.0, 1.0);
@@ -53,8 +53,8 @@ public class ElitismTwoIndividualsTest {
         assertEquals(Arrays.asList(c3, c1, c2), twoIndividuals.get(1).getValues());
     }
 
-    @Test(expected = ChromosomeNotFoundException.class)
-    public void deveRetornarErroCasoTenhaApenasUmIndividuo() throws ChromosomeNotFoundException{
+    @Test(expected = IllegalArgumentException.class)
+    public void deveRetornarErroCasoTenhaApenasUmIndividuo() {
 
         Component c0 = new Component(0.0, 4.0, 0.0);
         Component c1 = new Component(0.0, 4.0, 1.0);
@@ -65,15 +65,15 @@ public class ElitismTwoIndividualsTest {
         elitismTwoIndividuals.elect(fitnessList);
     }
 
-    @Test(expected = ChromosomeNotFoundException.class)
-    public void deveRetornarErroCasoNaoTenhaIndividuo() throws ChromosomeNotFoundException{
+    @Test(expected = IllegalArgumentException.class)
+    public void deveRetornarErroCasoNaoTenhaIndividuo() {
         List<Fitness> fitnessList = Collections.EMPTY_LIST;
         ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals();
         elitismTwoIndividuals.elect(fitnessList);
     }
 
-    @Test(expected = ChromosomeNotFoundException.class)
-    public void deveRetornarErroCasoIndividuoSejaNulo() throws ChromosomeNotFoundException{
+    @Test(expected = IllegalArgumentException.class)
+    public void deveRetornarErroCasoIndividuoSejaNulo() {
         ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals();
         elitismTwoIndividuals.elect(null);
     }

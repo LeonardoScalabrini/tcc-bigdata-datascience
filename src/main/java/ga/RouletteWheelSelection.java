@@ -19,7 +19,7 @@ public class RouletteWheelSelection {
         this.sumFitness = sum;
     }
 
-    public Chromosome selection() throws ChromosomeNotFoundException{
+    public Chromosome selection() {
         Integer r = random.nextInt(sumFitness.intValue());
         Double s = 0.0;
         for (Fitness fitness : fitnesses) {
@@ -30,6 +30,6 @@ public class RouletteWheelSelection {
             }
         }
 
-        throw new ChromosomeNotFoundException();
+        throw new IllegalArgumentException();
     }
 }

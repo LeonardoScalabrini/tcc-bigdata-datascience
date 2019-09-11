@@ -25,11 +25,11 @@ public class ElitismCrossoverMutationPopulationFactory implements PopulationFact
         this.random = random;
     }
 
-    public List<Chromosome> create(List<Fitness> fitnesses, Integer populationSize) throws ChromosomeNotFoundException {
+    public List<Chromosome> create(List<Fitness> fitnesses, Integer populationSize, Double crossoverProbability, Double mutationProbability){
         List<Chromosome> newPopulation = new ArrayList<Chromosome>();
         newPopulation.addAll(elitismTwoIndividuals.elect(fitnesses));
         rouletteWheelSelection.sum(fitnesses, random);
-        for (int r = 2; r < populationSize - 2; r+=2) {
+        for (int r = 2; r < populationSize; r+=2) {
 
             Chromosome c1 = rouletteWheelSelection.selection();
             Chromosome c2 = rouletteWheelSelection.selection();
@@ -42,14 +42,17 @@ public class ElitismCrossoverMutationPopulationFactory implements PopulationFact
             newPopulation.addAll(Arrays.asList(c1, c2));
         }
 
-        if (random.nextDouble() <= mutationProbability){
-
+        List<Chromosome> toRemove = new ArrayList<Chromosome>();
+        List<Chromosome> toAdd = new ArrayList<Chromosome>();
+        for (Chromosome chromosome : newPopulation) {
+            if (random.nextDouble() <= mutationProbability){
+                toAdd.add(uniformMutation.mutation(chromosome, random));
+                toRemove.add(chromosome);
+            }
         }
+        newPopulation.removeAll(toRemove);
+        newPopulation.addAll(toAdd);
 
-        Chromosome c1 = rouletteWheelSelection.selection();
-        Chromosome c2 = rouletteWheelSelection.selection();
-        newPopulation.add(uniformMutation.mutation(c1, random));
-        newPopulation.add(uniformMutation.mutation(c2, random));
         return newPopulation;
 }
 }

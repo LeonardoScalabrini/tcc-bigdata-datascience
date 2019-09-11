@@ -40,7 +40,7 @@ public class ElitismCrossoverMutationPopulationFactoryTest {
     private List<Chromosome> crossoverChromosomes;
 
     @Before
-    public void init() throws ChromosomeNotFoundException {
+    public void init() {
         Component c0 = new Component(0.0, 4.0, 0.0);
         Component c1 = new Component(0.0, 4.0, 1.0);
         Component c2 = new Component(0.0, 4.0, 2.0);
@@ -60,16 +60,41 @@ public class ElitismCrossoverMutationPopulationFactoryTest {
         when(rouletteWheelSelection.selection()).thenReturn(chromosome);
         when(arithmeticCrossover.crossover(chromosome, chromosome, random)).thenReturn(crossoverChromosomes);
         when(uniformMutation.mutation(chromosome, random)).thenReturn(chromosome);
+        when(random.nextDouble()).thenReturn(0.01);
     }
 
     @Test
-    public void deveCriarPopulacao() throws ChromosomeNotFoundException {
-        List<Chromosome> chromosomes = elitismCrossoverMutationPopulationFactory.create(fitnesses, 50);
+    public void deveCriarPopulacao() {
+        List<Chromosome> chromosomes = elitismCrossoverMutationPopulationFactory.create(fitnesses, 50, 0.6, 0.01);
         assertEquals(50, chromosomes.size());
         verify(elitismTwoIndividuals, times(1)).elect(fitnesses);
         verify(rouletteWheelSelection, times(1)).sum(fitnesses, random);
         verify(rouletteWheelSelection, times(48)).selection();
-        verify(arithmeticCrossover, times(23)).crossover(chromosome, chromosome, random);
-        verify(uniformMutation, times(2)).mutation(chromosome, random);
+        verify(arithmeticCrossover, times(24)).crossover(chromosome, chromosome, random);
+        verify(uniformMutation, times(50)).mutation(any(Chromosome.class), eq(random));
+    }
+
+    @Test
+    public void naoDeveRealizarCrossover() {
+        when(random.nextDouble()).thenReturn(0.7);
+        List<Chromosome> chromosomes = elitismCrossoverMutationPopulationFactory.create(fitnesses, 50, 0.6, 0.01);
+        assertEquals(50, chromosomes.size());
+        verify(elitismTwoIndividuals, times(1)).elect(fitnesses);
+        verify(rouletteWheelSelection, times(1)).sum(fitnesses, random);
+        verify(rouletteWheelSelection, times(48)).selection();
+        verify(arithmeticCrossover, times(0)).crossover(chromosome, chromosome, random);
+        verify(uniformMutation, times(0)).mutation(any(Chromosome.class), eq(random));
+    }
+
+    @Test
+    public void naoDeveRealizarMutacao() {
+        when(random.nextDouble()).thenReturn(0.5);
+        List<Chromosome> chromosomes = elitismCrossoverMutationPopulationFactory.create(fitnesses, 50, 0.6, 0.01);
+        assertEquals(50, chromosomes.size());
+        verify(elitismTwoIndividuals, times(1)).elect(fitnesses);
+        verify(rouletteWheelSelection, times(1)).sum(fitnesses, random);
+        verify(rouletteWheelSelection, times(48)).selection();
+        verify(arithmeticCrossover, times(24)).crossover(chromosome, chromosome, random);
+        verify(uniformMutation, times(0)).mutation(any(Chromosome.class), eq(random));
     }
 }

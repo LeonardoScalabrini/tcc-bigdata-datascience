@@ -7,10 +7,10 @@ import java.util.List;
 
 public class ElitismTwoIndividuals {
 
-    public List<Chromosome> elect(List<Fitness> fitnesses) throws ChromosomeNotFoundException {
+    public List<Chromosome> elect(List<Fitness> fitnesses) {
 
         if(fitnesses == null || fitnesses.size() < 2)
-            throw new ChromosomeNotFoundException();
+            throw new IllegalArgumentException();
 
         List<Fitness> copyFitnesses = new ArrayList<Fitness>(fitnesses);
         Collections.sort(copyFitnesses);
