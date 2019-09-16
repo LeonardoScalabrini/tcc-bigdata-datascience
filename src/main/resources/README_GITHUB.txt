@@ -2,8 +2,8 @@ Busca todas as issues já fechadas
 https://api.github.com/repos/iluwatar/java-design-patterns/issues?state=closed&page=1&per_page=100
 
 Busca todos os commits
-*Precisa filtrar os commits por branch (master)
-https://api.github.com/repos/iluwatar/java-design-patterns/commits
+*Precisa filtrar os commits por branch (master)--FEITO
+https://api.github.com/repos/iluwatar/java-design-patterns/commits?sha=master
 
 Busca todos os detablhes de um commit, como
 message: commit message
