@@ -16,9 +16,14 @@ public class CommitDeserializer implements JsonDeserializer<Commit> {
 
         Commit commit = new Commit();
 
-        commit.setSha(jsonElement.getAsJsonObject().get("sha").getAsString());
+        if(jsonElement.getAsJsonObject().get("sha") != null)
+            commit.setSha(jsonElement.getAsJsonObject().get("sha").getAsString());
 
-        commit.setMessage(jsonElement.getAsJsonObject().get("commit").getAsJsonObject().get("message").getAsString());
+        if(jsonElement.getAsJsonObject().get("commit") != null)
+            commit.setMessage(jsonElement.getAsJsonObject().get("commit").getAsJsonObject().get("message").getAsString());
+
+        if(jsonElement.getAsJsonObject().get("message") != null)
+            commit.setMessage(jsonElement.getAsJsonObject().get("message").getAsString());
 
         List<File> files = new ArrayList<File>();
         if(jsonElement.getAsJsonObject().get("files") != null)

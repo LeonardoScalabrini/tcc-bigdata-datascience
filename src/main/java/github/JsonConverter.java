@@ -14,7 +14,10 @@ public class JsonConverter {
     }
 
     public <T> List<T> fromJsons(String json, Class<T[]> tArray){
-
         return Arrays.asList(gson.fromJson(json, tArray));
+    }
+
+    public <T> String toJson(T object){
+        return gson.toJson(object);
     }
 }

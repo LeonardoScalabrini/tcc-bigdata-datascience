@@ -1,5 +1,7 @@
 package github;
 
+import java.util.Objects;
+
 public class File {
 
     private String filename;
@@ -20,5 +22,14 @@ public class File {
 
     public void setPatch(String patch) {
         this.patch = patch;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        File file = (File) o;
+        return Objects.equals(filename, file.filename) &&
+                Objects.equals(patch, file.patch);
     }
 }
