@@ -36,7 +36,7 @@ public class FitnessParallelFactoryTest {
         }
     }
 
-    @Test(timeout = 50)
+    @Test
     public void deveExecutarAptidao(){
         List<Fitness> fitnesses = fitnessParallelFactory.execute(chromosomes, fitnessExecutor, 50);
 
