@@ -8,6 +8,8 @@ import java.util.Objects;
 @JsonAdapter(CommitDeserializer.class)
 public class Commit {
 
+    private String project;
+
     private String sha;
 
     private String message;
@@ -46,6 +48,14 @@ public class Commit {
 
     public void setFiles(List<File> files) {
         this.files = files;
+    }
+
+    public String getProject() {
+        return project;
+    }
+
+    public void setProject(String project) {
+        this.project = project;
     }
 
     @Override

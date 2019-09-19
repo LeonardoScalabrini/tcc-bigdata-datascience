@@ -15,12 +15,12 @@ import java.util.Base64;
 
 public class GitHubService {
 
-    public HttpResponse commits(GitHubConfig gitHubConfig, String branch) throws IOException {
+    public HttpResponse commits(GitHubConfig gitHubConfig, String branch, Integer page, Integer perPage) throws IOException {
 
         HttpClient client = getHttpClient(gitHubConfig);
 
-        HttpUriRequest request = RequestBuilder.get().setUri(String.format("%s/commits?sha=%s",
-                gitHubConfig.repository, branch)).build();
+        HttpUriRequest request = RequestBuilder.get().setUri(String.format("%s/commits?sha=%s&page=%s&per_page=%s",
+                gitHubConfig.repository, branch, page, perPage)).build();
 
         return client.execute(request);
     }
@@ -29,7 +29,7 @@ public class GitHubService {
 
         HttpClient client = getHttpClient(gitHubConfig);
 
-        HttpUriRequest request = RequestBuilder.get().setUri(String.format("%s/issues?state=closed&page=%s&per_page=%s",
+            HttpUriRequest request = RequestBuilder.get().setUri(String.format("%s/issues?q=isAissue+isAclosed&page=%s&per_page=%s",
                 gitHubConfig.repository, page, perPage)).build();
 
         return client.execute(request);

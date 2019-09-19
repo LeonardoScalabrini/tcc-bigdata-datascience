@@ -33,6 +33,7 @@ public class CommitRepositoryTest {
     public void deveSalvarCommit(){
         Commit commit = new Commit();
         commit.setSha("SHA");
+        commit.setProject("PROJECT");
 
         Parent parent = new Parent();
         parent.setSha("SHA");
@@ -54,6 +55,7 @@ public class CommitRepositoryTest {
     public void deveBuscarTodos(){
         Commit commit1 = new Commit();
         commit1.setSha("SHA");
+        commit1.setProject("PROJECT");
 
         Parent parent = new Parent();
         parent.setSha("SHA");
@@ -68,6 +70,7 @@ public class CommitRepositoryTest {
 
         Commit commit2 = new Commit();
         commit2.setSha("SHA2");
+        commit2.setProject("PROJECT2");
 
         Parent parent2 = new Parent();
         parent2.setSha("SHA2");

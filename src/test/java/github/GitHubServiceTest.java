@@ -38,7 +38,7 @@ public class GitHubServiceTest {
         serverUtil.commits(HttpStatus.SC_OK, response);
 
         GitHubConfig gitHubConfig = new GitHubConfig("username", "password", "http://localhost:8888/github");
-        HttpResponse httpResponse = gitHubService.commits(gitHubConfig, "master");
+        HttpResponse httpResponse = gitHubService.commits(gitHubConfig, "master", 1, 100);
         String jsonReponse = httpUtil.fromHttpResponse(httpResponse);
         String header = httpUtil.fromHeader(httpResponse, HEADER);
         assertEquals(response, jsonReponse);

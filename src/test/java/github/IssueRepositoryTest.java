@@ -32,6 +32,7 @@ public class IssueRepositoryTest {
     public void deveSalvarIssue(){
 
         Issue issue = new Issue();
+        issue.setProject("PROJECT");
         issue.setNumber(100);
 
         issueRepository.save(issue);
@@ -42,9 +43,11 @@ public class IssueRepositoryTest {
     @Test
     public void deveBuscarTodos(){
         Issue issue = new Issue();
+        issue.setProject("PROJECT1");
         issue.setNumber(100);
 
         Issue issue2 = new Issue();
+        issue2.setProject("PROJECT2");
         issue2.setNumber(90);
 
         issueRepository.save(issue);

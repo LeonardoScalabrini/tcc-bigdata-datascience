@@ -7,7 +7,7 @@ public class ServerUtil {
     public static final int PORT = 8888;
 
     public void commits(int status, String response) {
-        stubFor(get(urlEqualTo("/github/commits?sha=master"))
+        stubFor(get(urlEqualTo("/github/commits?sha=master&page=1&per_page=100"))
                 .withBasicAuth("username", "password")
                 .withHeader("Content-Type", containing("application/json"))
                 .willReturn(aResponse().withHeader("X-RateLimit-Limit", "100")
@@ -15,7 +15,7 @@ public class ServerUtil {
     }
 
     public void issues(int status, String response) {
-        stubFor(get(urlEqualTo("/github/issues?state=closed&page=1&per_page=100"))
+        stubFor(get(urlEqualTo("/github/issues?q=isAissue+isAclosed&page=1&per_page=100"))
                 .withBasicAuth("username", "password")
                 .withHeader("Content-Type", containing("application/json"))
                 .willReturn(aResponse().withHeader("X-RateLimit-Limit", "100")

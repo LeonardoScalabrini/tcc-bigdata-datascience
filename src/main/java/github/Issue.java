@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class Issue {
 
+    private String project;
+
     private Integer number;
 
     public Integer getNumber() {
@@ -12,6 +14,14 @@ public class Issue {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    public String getProject() {
+        return project;
+    }
+
+    public void setProject(String project) {
+        this.project = project;
     }
 
     @Override
