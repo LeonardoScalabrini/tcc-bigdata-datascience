@@ -51,7 +51,7 @@ public class GitHubMining {
 
             System.out.println("COMMIT: " + i);
 
-            HttpResponse httpResponse = gitHubService.commit(gitHubConfig, commits.get(0).getSha());
+            HttpResponse httpResponse = gitHubService.commit(gitHubConfig, commits.get(i).getSha());
 
             if (refreshLimit(httpResponse)) continue;
 
@@ -59,17 +59,15 @@ public class GitHubMining {
 
             System.out.println("COMMIT: ");
             System.out.println(json);
-            List<Commit> newCommits = jsonConverter.fromJsons(json, Commit[].class);
+            Commit commit = jsonConverter.fromJson(json, Commit.class);
 
             if(i == commits.size() - 1){
                 System.out.println("FIM COMMIT");
                 break;
             }
 
-            for (Commit commit : newCommits) {
-                commit.setProject(gitHubConfig.repository);
-                commitRepository.save(commit);
-            }
+            commit.setProject(gitHubConfig.repository);
+            commitRepository.save(commit);
 
             System.out.println("PERSISTIDO COMMIT");
 
