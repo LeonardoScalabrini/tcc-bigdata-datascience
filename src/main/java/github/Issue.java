@@ -8,6 +8,8 @@ public class Issue {
 
     private Integer number;
 
+    private PullRequest pull_request;
+
     public Integer getNumber() {
         return number;
     }
@@ -24,11 +26,21 @@ public class Issue {
         this.project = project;
     }
 
+    public PullRequest getPull_request() {
+        return pull_request;
+    }
+
+    public void setPull_request(PullRequest pull_request) {
+        this.pull_request = pull_request;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Issue issue = (Issue) o;
-        return Objects.equals(number, issue.number);
+        return Objects.equals(project, issue.project) &&
+                Objects.equals(number, issue.number) &&
+                Objects.equals(pull_request, issue.pull_request);
     }
 }
