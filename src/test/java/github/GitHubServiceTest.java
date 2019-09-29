@@ -9,8 +9,6 @@ import org.junit.Test;
 import util.FileUtil;
 import util.ServerUtil;
 
-import java.io.IOException;
-
 import static org.junit.Assert.assertEquals;
 
 public class GitHubServiceTest {
@@ -33,7 +31,7 @@ public class GitHubServiceTest {
     }
 
     @Test
-    public void deveRetornarCommits() throws IOException {
+    public void deveRetornarCommits() throws Exception {
         String response = FileUtil.loadJson("commits.json");
         serverUtil.commits(HttpStatus.SC_OK, response);
 
@@ -46,7 +44,7 @@ public class GitHubServiceTest {
     }
 
     @Test
-    public void deveRetornarIssues() throws IOException {
+    public void deveRetornarIssues() throws Exception {
         String response = FileUtil.loadJson("issues.json");
         serverUtil.issues(HttpStatus.SC_OK, response);
 
@@ -59,7 +57,7 @@ public class GitHubServiceTest {
     }
 
     @Test
-    public void deveRetornarCommit() throws IOException {
+    public void deveRetornarCommit() throws Exception {
         String response = FileUtil.loadJson("commit.json");
         serverUtil.commit(HttpStatus.SC_OK, response);
 

@@ -9,13 +9,12 @@ import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Base64;
 
 public class GitHubService {
 
-    public HttpResponse commits(GitHubConfig gitHubConfig, String branch, Integer page, Integer perPage) throws IOException {
+    public HttpResponse commits(GitHubConfig gitHubConfig, String branch, Integer page, Integer perPage) throws Exception {
 
         HttpClient client = getHttpClient(gitHubConfig);
 
@@ -25,17 +24,17 @@ public class GitHubService {
         return client.execute(request);
     }
 
-    public HttpResponse issues(GitHubConfig gitHubConfig, Integer page, Integer perPage) throws IOException {
+    public HttpResponse issues(GitHubConfig gitHubConfig, Integer page, Integer perPage) throws Exception {
 
         HttpClient client = getHttpClient(gitHubConfig);
 
-            HttpUriRequest request = RequestBuilder.get().setUri(String.format("%s/issues?q=isAissue+isAclosed&page=%s&per_page=%s",
+            HttpUriRequest request = RequestBuilder.get().setUri(String.format("%s/issues?state=closed&page=%s&per_page=%s",
                 gitHubConfig.repository, page, perPage)).build();
 
         return client.execute(request);
     }
 
-    public HttpResponse commit(GitHubConfig gitHubConfig, String commit) throws IOException {
+    public HttpResponse commit(GitHubConfig gitHubConfig, String commit) throws Exception {
 
         HttpClient client = getHttpClient(gitHubConfig);
 

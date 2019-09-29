@@ -18,4 +18,12 @@ public class IssueTest {
         assertEquals(new Integer(921), issues.get(0).getNumber());
     }
 
+    @Test
+    public void deveSerializarIssueWithPullRequest(){
+        String json = FileUtil.loadJson("issue_with_pull_request.json");
+        Issue issue = jsonConverter.fromJson(json, Issue.class);
+        assertEquals(new Integer(921), issue.getNumber());
+        assertEquals("https://api.github.com/repos/iluwatar/java-design-patterns/pulls/921", issue.getPull_request().getUrl());
+    }
+
 }

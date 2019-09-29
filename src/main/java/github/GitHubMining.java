@@ -2,7 +2,6 @@ package github;
 
 import org.apache.http.HttpResponse;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +29,7 @@ public class GitHubMining {
         this.commitRepository = commitRepository;
     }
 
-    public void mine(GitHubConfig gitHubConfig) throws IOException, InterruptedException {
+    public void mine(GitHubConfig gitHubConfig) {
 
         extractIssues(gitHubConfig);
 
@@ -44,97 +43,109 @@ public class GitHubMining {
         extractDetailCommits(gitHubConfig, commits);
     }
 
-    private void extractDetailCommits(GitHubConfig gitHubConfig, List<Commit> commits) throws IOException, InterruptedException {
+    private void extractDetailCommits(GitHubConfig gitHubConfig, List<Commit> commits) {
         System.out.println("INICIANDO COMMIT");
         Integer i = 0;
         while (true){
 
             System.out.println("COMMIT: " + i);
+            HttpResponse httpResponse = null;
+            try {
+                httpResponse = gitHubService.commit(gitHubConfig, commits.get(i).getSha());
 
-            HttpResponse httpResponse = gitHubService.commit(gitHubConfig, commits.get(0).getSha());
+                if (refreshLimit(httpResponse)) continue;
 
-            if (refreshLimit(httpResponse)) continue;
+                String json = httpUtil.fromHttpResponse(httpResponse);
 
-            String json = httpUtil.fromHttpResponse(httpResponse);
+                System.out.println("COMMIT: ");
+                System.out.println(json);
+                Commit commit = jsonConverter.fromJson(json, Commit.class);
 
-            System.out.println("COMMIT: ");
-            System.out.println(json);
-            List<Commit> newCommits = jsonConverter.fromJsons(json, Commit[].class);
+                if(i == commits.size() - 1){
+                    System.out.println("FIM COMMIT");
+                    break;
+                }
 
-            if(i == commits.size() - 1){
-                System.out.println("FIM COMMIT");
-                break;
-            }
-
-            for (Commit commit : newCommits) {
                 commit.setProject(gitHubConfig.repository);
                 commitRepository.save(commit);
+                System.out.println("PERSISTIDO COMMIT");
+
+                i++;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-            System.out.println("PERSISTIDO COMMIT");
-
-            i++;
         }
     }
 
-    private List<Commit> findCommits(GitHubConfig gitHubConfig) throws IOException, InterruptedException {
+    private List<Commit> findCommits(GitHubConfig gitHubConfig) {
         System.out.println("INICIANDO COMMITS");
         List<Commit> commits = new ArrayList<>();
         Integer i = 0;
+
         while (true){
 
             Integer page = i + 1;
-
             System.out.println("PAGINA: " + page);
+            HttpResponse httpResponse = null;
 
-            HttpResponse httpResponse = gitHubService.commits(gitHubConfig, "master", page, ((page) * 100));
+            try {
+                httpResponse = gitHubService.commits(gitHubConfig, "master", page, ((page) * 100));
 
-            if (refreshLimit(httpResponse)) continue;
+                if (refreshLimit(httpResponse)) continue;
 
-            List<Commit> newCommits = jsonConverter.fromJsons(httpUtil.fromHttpResponse(httpResponse), Commit[].class);
+                List<Commit> newCommits = jsonConverter.fromJsons(httpUtil.fromHttpResponse(httpResponse), Commit[].class);
 
-            if(newCommits.isEmpty()){
-                System.out.println("FIM COMMITS");
-                break;
+                if(newCommits.isEmpty()){
+                    System.out.println("FIM COMMITS");
+                    break;
+                }
+
+                commits.addAll(newCommits);
+
+                System.out.println("PERSISTIDO COMMITS");
+
+                i++;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-            commits.addAll(newCommits);
-
-            System.out.println("PERSISTIDO COMMITS");
-
-            i++;
         }
         return commits;
     }
 
-    private void extractIssues(GitHubConfig gitHubConfig) throws IOException, InterruptedException {
+    private void extractIssues(GitHubConfig gitHubConfig) {
         System.out.println("INICIANDO ISSUE");
         Integer i = 0;
         while (true){
 
             Integer page = i + 1;
-
             System.out.println("PAGINA: " + page);
+            HttpResponse httpResponse = null;
 
-            HttpResponse httpResponse = gitHubService.issues(gitHubConfig, page, ((page) * 100));
+            try {
+                httpResponse = gitHubService.issues(gitHubConfig, page, ((page) * 100));
+                if (refreshLimit(httpResponse)) continue;
 
-            if (refreshLimit(httpResponse)) continue;
+                List<Issue> issues = jsonConverter.fromJsons(httpUtil.fromHttpResponse(httpResponse), Issue[].class);
 
-            List<Issue> issues = jsonConverter.fromJsons(httpUtil.fromHttpResponse(httpResponse), Issue[].class);
+                if(issues.isEmpty()){
+                    System.out.println("FIM ISSUE");
+                    break;
+                }
 
-            if(issues.isEmpty()){
-                System.out.println("FIM ISSUE");
-                break;
+                for (Issue issue : issues) {
+                    if (issue.getPull_request() != null)
+                        continue;
+
+                    issue.setProject(gitHubConfig.repository);
+                    issueRepository.save(issue);
+                }
+
+                System.out.println("PERSISTIDO ISSUE");
+                i++;
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-            for (Issue issue : issues) {
-                issue.setProject(gitHubConfig.repository);
-                issueRepository.save(issue);
-            }
-
-            System.out.println("PERSISTIDO ISSUE");
-
-            i++;
         }
     }
 

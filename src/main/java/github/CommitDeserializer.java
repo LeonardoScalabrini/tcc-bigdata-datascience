@@ -29,8 +29,13 @@ public class CommitDeserializer implements JsonDeserializer<Commit> {
         if(jsonElement.getAsJsonObject().get("files") != null)
             jsonElement.getAsJsonObject().get("files").getAsJsonArray().forEach(file -> {
                 File newFile = new File();
-                newFile.setFilename(file.getAsJsonObject().get("filename").getAsString());
-                newFile.setPatch(file.getAsJsonObject().get("patch").getAsString());
+
+                if(file.getAsJsonObject().get("filename") != null)
+                    newFile.setFilename(file.getAsJsonObject().get("filename").getAsString());
+
+                if(file.getAsJsonObject().get("patch") != null)
+                    newFile.setPatch(file.getAsJsonObject().get("patch").getAsString());
+
                 files.add(newFile);
             });
         commit.setFiles(files);

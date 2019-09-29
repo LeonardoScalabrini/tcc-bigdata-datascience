@@ -32,9 +32,8 @@ public class CommitTest {
     }
 
     @Test
-    public void deveSerializarCommitsComErro(){
-        String json = FileUtil.loadJson("commits_erro.json");
-        List<Commit> commits = jsonConverter.fromJsons(json, Commit[].class);
-        assertEquals("019abc9980b9855bf04086c44b68f3282119c6b3", commits.get(0).getSha());
+    public void deveSerializarCommitsWithError(){
+        String json = FileUtil.loadJson("commit_with_error.json");
+        Commit commit = jsonConverter.fromJson(json, Commit.class);
     }
 }
