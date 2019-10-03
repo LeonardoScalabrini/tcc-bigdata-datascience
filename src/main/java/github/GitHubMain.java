@@ -1,10 +1,8 @@
 package github;
 
-import java.io.IOException;
-
 public class GitHubMain {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) {
 
         GitHubService gitHubService = new GitHubService();
         HttpUtil httpUtil = new HttpUtil();
@@ -13,18 +11,32 @@ public class GitHubMain {
         String username = "";
         String password = "";
 
-        createMinining(gitHubService, httpUtil, jsonConverter, username, password, "elasticsearch", "https://api.github.com/repos/elastic/elasticsearch");
-        createMinining(gitHubService, httpUtil, jsonConverter, username, password, "spring-boot", "https://api.github.com/repos/spring-projects/spring-boot");
-        createMinining(gitHubService, httpUtil, jsonConverter, username, password, "okhttp", "https://api.github.com/repos/square/okhttp");
-        createMinining(gitHubService, httpUtil, jsonConverter, username, password, "guava", "https://api.github.com/repos/google/guava");
+        //createMinining(gitHubService, httpUtil, jsonConverter, username, password, "elasticsearch", "https://api.github.com/repos/elastic/elasticsearch");
+        //createMinining(gitHubService, httpUtil, jsonConverter, username, password, "spring-boot", "https://api.github.com/repos/spring-projects/spring-boot");
+        //createMinining(gitHubService, httpUtil, jsonConverter, username, password, "okhttp", "https://api.github.com/repos/square/okhttp");
+        //createMinining(gitHubService, httpUtil, jsonConverter, username, password, "guava", "https://api.github.com/repos/google/guava");
+
+        //createRaw(gitHubService, httpUtil, jsonConverter, username, password, "elasticsearch", "https://api.github.com/repos/elastic/elasticsearch", "https://raw.githubusercontent.com/elastic/elasticsearch");
+        createRaw(gitHubService, httpUtil, jsonConverter, username, password, "okhttp", "https://api.github.com/repos/square/okhttp", "https://raw.githubusercontent.com/square/okhttp");
+        createRaw(gitHubService, httpUtil, jsonConverter, username, password, "guava", "https://api.github.com/repos/google/guava", "https://raw.githubusercontent.com/google/guava");
+        createRaw(gitHubService, httpUtil, jsonConverter, username, password, "spring-boot", "https://api.github.com/repos/spring-projects/spring-boot", "https://raw.githubusercontent.com/spring-projects/spring-boot");
     }
 
-    private static void createMinining(GitHubService gitHubService, HttpUtil httpUtil, JsonConverter jsonConverter, String username, String password, String repository, String url) throws IOException, InterruptedException {
+    private static void createMinining(GitHubService gitHubService, HttpUtil httpUtil, JsonConverter jsonConverter, String username, String password, String repository, String url) {
         IssueRepository issueRepository = new IssueRepository(repository);
         CommitRepository commitRepository = new CommitRepository(repository);
         GitHubMining gitHubMining = new GitHubMining(gitHubService, httpUtil, jsonConverter, issueRepository, commitRepository);
 
-        GitHubConfig gitHubConfig = new GitHubConfig(username, password, url);
+        GitHubConfig gitHubConfig = new GitHubConfig(username, password, url, null);
         gitHubMining.mine(gitHubConfig);
+    }
+
+    private static void createRaw(GitHubService gitHubService, HttpUtil httpUtil, JsonConverter jsonConverter, String username, String password, String repository, String url, String raw) {
+        IssueRepository issueRepository = new IssueRepository(repository);
+        CommitRepository commitRepository = new CommitRepository(repository);
+        GitHubMining gitHubMining = new GitHubMining(gitHubService, httpUtil, jsonConverter, issueRepository, commitRepository);
+
+        GitHubConfig gitHubConfig = new GitHubConfig(username, password, url, raw);
+        gitHubMining.extractRawFiles(gitHubConfig);
     }
 }

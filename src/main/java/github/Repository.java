@@ -7,6 +7,7 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,14 @@ public abstract class Repository <T>{
         MongoCollection<Document> collection = getDocumentMongoCollection(t.getClass());
         Document document = Document.parse(jsonConverter.toJson(t));
         collection.insertOne(document);
+    }
+
+    public void update(String sha, T t){
+        MongoCollection<Document> collection = getDocumentMongoCollection(t.getClass());
+        Bson filter = new Document("sha", sha);
+        Document document = Document.parse(jsonConverter.toJson(t));
+        Bson update = new Document("$set", document);
+        collection.updateOne(filter, update);
     }
 
     public void removeAll(Class<T> clazz){

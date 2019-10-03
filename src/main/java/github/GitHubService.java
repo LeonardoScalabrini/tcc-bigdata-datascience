@@ -44,6 +44,14 @@ public class GitHubService {
         return client.execute(request);
     }
 
+    public HttpResponse raw(GitHubConfig gitHubConfig, Commit commit, File file) throws Exception {
+        HttpClient client = getHttpClient(gitHubConfig);
+        HttpUriRequest request = RequestBuilder.get().setUri(String.format("%s/%s/%s",
+                gitHubConfig.raw, commit.getSha(), file.getFilename())).build();
+
+        return client.execute(request);
+    }
+
     private HttpClient getHttpClient(GitHubConfig gitHubConfig) {
         String encoding = Base64.getEncoder().encodeToString((gitHubConfig.username + ":" + gitHubConfig.password).getBytes());
 

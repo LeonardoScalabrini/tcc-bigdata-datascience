@@ -149,6 +149,51 @@ public class GitHubMining {
         }
     }
 
+    public void extractRawFiles(GitHubConfig gitHubConfig) {
+
+        List<Commit> commits = commitRepository.findMany(Commit.class);
+
+        System.out.println("INICIANDO RAW");
+        Integer i = 0;
+        while (true){
+
+            System.out.println("COMMIT: " + i);
+            HttpResponse httpResponse = null;
+            try {
+
+                Commit commit = commits.get(i);
+
+                for (File file : commit.getFiles()) {
+
+                    if (!file.getFilename().endsWith(".java"))
+                        continue;
+
+                    httpResponse = gitHubService.raw(gitHubConfig, commit, file);
+
+                    if (refreshLimit(httpResponse)) continue;
+
+                    String raw = httpUtil.fromHttpResponse(httpResponse);
+
+                    System.out.println("RAW: ");
+                    System.out.println(raw);
+                    file.setRaw(raw);
+                }
+
+                if(i == commits.size() - 1){
+                    System.out.println("FIM RAW");
+                    break;
+                }
+
+                commitRepository.update(commits.get(i).getSha() ,commits.get(i));
+                System.out.println("PERSISTIDO COMMIT");
+
+                i++;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private boolean refreshLimit(HttpResponse httpResponse) throws InterruptedException {
 
         Integer rateLimit = Integer.valueOf(httpUtil.fromHeader(httpResponse, HEADER_LIMIT));

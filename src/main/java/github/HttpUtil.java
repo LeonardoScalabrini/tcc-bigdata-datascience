@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public class HttpUtil {
 
+    public static final String ONE = "1";
+
     public String fromHttpResponse(HttpResponse httpResponse){
         try {
             return EntityUtils.toString(httpResponse.getEntity());
@@ -23,6 +25,6 @@ public class HttpUtil {
             if(headerName.equals(header.getName()))
                 return header.getValue();
         }
-        return null;
+        return ONE;
     }
 }

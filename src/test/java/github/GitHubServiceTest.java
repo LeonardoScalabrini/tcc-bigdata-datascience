@@ -35,7 +35,7 @@ public class GitHubServiceTest {
         String response = FileUtil.loadJson("commits.json");
         serverUtil.commits(HttpStatus.SC_OK, response);
 
-        GitHubConfig gitHubConfig = new GitHubConfig("username", "password", "http://localhost:8888/github");
+        GitHubConfig gitHubConfig = new GitHubConfig("username", "password", "http://localhost:8888/github", "");
         HttpResponse httpResponse = gitHubService.commits(gitHubConfig, "master", 1, 100);
         String jsonReponse = httpUtil.fromHttpResponse(httpResponse);
         String header = httpUtil.fromHeader(httpResponse, HEADER);
@@ -48,7 +48,7 @@ public class GitHubServiceTest {
         String response = FileUtil.loadJson("issues.json");
         serverUtil.issues(HttpStatus.SC_OK, response);
 
-        GitHubConfig gitHubConfig = new GitHubConfig("username", "password", "http://localhost:8888/github");
+        GitHubConfig gitHubConfig = new GitHubConfig("username", "password", "http://localhost:8888/github", "");
         HttpResponse httpResponse = gitHubService.issues(gitHubConfig, 1, 100);
         String jsonReponse = httpUtil.fromHttpResponse(httpResponse);
         String header = httpUtil.fromHeader(httpResponse, HEADER);
@@ -61,7 +61,7 @@ public class GitHubServiceTest {
         String response = FileUtil.loadJson("commit.json");
         serverUtil.commit(HttpStatus.SC_OK, response);
 
-        GitHubConfig gitHubConfig = new GitHubConfig("username", "password", "http://localhost:8888/github");
+        GitHubConfig gitHubConfig = new GitHubConfig("username", "password", "http://localhost:8888/github", "");
         HttpResponse httpResponse = gitHubService.commit(gitHubConfig, "019abc9980b9855bf04086c44b68f3282119c6b3");
         String jsonReponse = httpUtil.fromHttpResponse(httpResponse);
         String header = httpUtil.fromHeader(httpResponse, HEADER);
