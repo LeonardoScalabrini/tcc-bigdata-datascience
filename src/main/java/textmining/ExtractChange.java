@@ -1,54 +1,48 @@
-package changedistiller;
+package textmining;
 
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilationUtils;
 import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
+import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDifferencer;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureTreeBuilder;
 import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
 import org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope;
-import org.junit.Test;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
-public class ChangeDistillerTest {
+public class ExtractChange {
 
-    @Test
-    public void teste(){
-        String lSource = "public class Foo { class Bar { void method() {} } }";
-        String fSource = "public class Foo { class Bar { void method() { int a = 12; } } }";
-        StructureDiffNode structureDiffNode = createDifferences(lSource, fSource);
-        System.out.println(structureDiffNode.getRight().getChildren().get(0).getName());
-
+    public List<SourceCodeChange> extract(String oldRaw, String raw){
         try {
-            // Create temp file.
             File temp = File.createTempFile("pattern", ".suffix");
             File fTemp = File.createTempFile("pattern2", ".suffix");
 
-            // Delete temp file when program exits.
             temp.deleteOnExit();
             fTemp.deleteOnExit();
 
-            // Write to temp file
             BufferedWriter out = new BufferedWriter(new FileWriter(temp));
             BufferedWriter fOut = new BufferedWriter(new FileWriter(fTemp));
-            out.write(lSource);
+            out.write(oldRaw);
+            fOut.write(raw);
             out.close();
-            fOut.write(fSource);
             fOut.close();
 
             FileDistiller distiller = ChangeDistiller.createFileDistiller(ChangeDistiller.Language.JAVA);
             distiller.extractClassifiedSourceCodeChanges(temp, fTemp);
-            System.out.println(distiller.getSourceCodeChanges().get(0).getChangedEntity().getUniqueName());
+            return distiller.getSourceCodeChanges();
 
         } catch (IOException e) {
         }
+
+        return null;
     }
 
     private StructureDiffNode createDifferences(String lSource, String rSource) {

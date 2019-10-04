@@ -13,9 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.collect;
+
 import com.google.common.annotations.GwtCompatible;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
+
 /**
  * Wraps an exception that occurred during a computation.
  *
@@ -28,5 +31,6 @@ public class ComputationException extends RuntimeException {
     public ComputationException(@NullableDecl Throwable cause) {
         super(cause);
     }
+
     private static final long serialVersionUID = 0;
 }
