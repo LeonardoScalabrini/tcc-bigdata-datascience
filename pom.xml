@@ -60,6 +60,11 @@
             <classifier>models</classifier>
         </dependency>
         <dependency>
+            <groupId>com.github.sealuzh</groupId>
+            <artifactId>tools-changedistiller</artifactId>
+            <version>d7ceec136e</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>RELEASE</version>
@@ -84,9 +89,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.sealuzh</groupId>
-            <artifactId>tools-changedistiller</artifactId>
-            <version>d7ceec136e</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

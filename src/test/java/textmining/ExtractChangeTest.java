@@ -23,18 +23,21 @@ public class ExtractChangeTest {
 
     @Test
     public void deveExtrairAlteracoes(){
-        String oldRaw = FileUtil.loadJava("MapMaker_old.java");
+        String oldRaw = "public class MapMaker {}";
         String raw = FileUtil.loadJava("MapMaker_new.java");
 
         List<SourceCodeChange> codeChanges = extractChange.extract(oldRaw, raw);
 
-        Assert.assertEquals("", codeChanges.get(0).getChangedEntity());
-        Assert.assertEquals("", codeChanges.get(1).getChangedEntity().getUniqueName());
-        Assert.assertEquals("", codeChanges.get(2).getChangedEntity().getUniqueName());
-        Assert.assertEquals("", codeChanges.get(3).getChangedEntity().getUniqueName());
-        Assert.assertEquals("", codeChanges.get(4).getChangedEntity().getUniqueName());
-        Assert.assertEquals("", codeChanges.get(5).getChangedEntity().getUniqueName());
-        Assert.assertEquals("", codeChanges.get(6).getChangedEntity().getUniqueName());
-        Assert.assertEquals("", codeChanges.get(7).getChangedEntity().getUniqueName());
+        printChanges(raw, codeChanges, 0);
+        printChanges(raw, codeChanges, 1);
+        printChanges(raw, codeChanges, 2);
+        printChanges(raw, codeChanges, 3);
+        printChanges(raw, codeChanges, 4);
+        printChanges(raw, codeChanges, 5);
+    }
+
+    private void printChanges(String raw, List<SourceCodeChange> codeChanges, int index) {
+        System.out.println(codeChanges.get(index).getParentEntity().getUniqueName());
+        System.out.println(raw.substring(codeChanges.get(index).getChangedEntity().getStartPosition(), codeChanges.get(index).getChangedEntity().getEndPosition()));
     }
 }

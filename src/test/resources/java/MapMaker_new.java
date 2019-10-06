@@ -16,10 +16,10 @@
 
 package com.google.common.collect;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+
+import static com.google.common.base.Preconditions.checkArgument;
 
 /**
  * MapMaker emulation.
@@ -39,7 +39,7 @@ public final class MapMaker {
         return this;
     }
 
-    public MapMaker concurrencyLevel(int concurrencyLevel) {
+    public MapMaker concurrencyLevel(@Anotation int concurrencyLevel) {
         checkArgument(
                 concurrencyLevel >= 1, "concurrency level (%s) must be at least 1", concurrencyLevel);
         // GWT technically only supports concurrencyLevel == 1, but we silently
@@ -47,6 +47,7 @@ public final class MapMaker {
         return this;
     }
 
+    @Anotation
     public <K, V> ConcurrentMap<K, V> makeMap() {
         return new ConcurrentHashMap<K, V>(initialCapacity);
     }
