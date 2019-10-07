@@ -1,11 +1,18 @@
 package textmining;
 
+import java.util.List;
+
 public class RemoveNumber {
 
-    public static final String REGEX = "[0-9]+(\\.[0-9][0-9]?)?";
-    public static final String EMPTY = "";
-
-    String remove(String text){
-        return text.replaceAll(REGEX, EMPTY);
+    public List<String> remove(List<String> words){
+        words.removeIf(word -> {
+            for(int i=0; i< word.length(); i++){
+                char c = word.charAt(i);
+                if (Character.isDigit(c))
+                    return true;
+            }
+            return false;
+        });
+        return words;
     }
 }

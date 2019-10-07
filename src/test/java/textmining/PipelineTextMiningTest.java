@@ -3,6 +3,7 @@ package textmining;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class PipelineTextMiningTest {
@@ -22,6 +23,9 @@ public class PipelineTextMiningTest {
 
         List<String> result = pipelineTextMining.mine(text);
 
-        Assert.assertEquals("", result);
+        List<String> expected = Arrays.asList("map", "maker", "concurrency", "level", "check", "argument", "must", "least", "gwt", "technically", "support", "silently", "ignore", "positive", "value");
+        result.removeAll(expected);
+
+        Assert.assertTrue(result.isEmpty());
     }
 }

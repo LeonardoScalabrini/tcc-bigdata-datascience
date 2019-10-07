@@ -1,13 +1,10 @@
 package textmining;
 
+import java.util.List;
+
 public class RemoveTwoCharacter {
-
-    public static final String REGEX = "\\s([a-z])\\s";
-    public static final String REGEX_DUPLO = "\\s([a-z][a-z])\\s";
-    public static final String EMPTY = "";
-
-    public String remove(String text){
-        return text.replaceAll(REGEX, EMPTY)
-                .replaceAll(REGEX_DUPLO, EMPTY);
+    public List<String> remove(List<String> words){
+        words.removeIf(s -> s.length() <= 2);
+        return words;
     }
 }

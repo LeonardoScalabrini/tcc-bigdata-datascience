@@ -7,8 +7,17 @@ import java.util.List;
 
 public class DivideWord {
 
-    public List<String> divide(String word){
+    public List<String> divide(List<String> words){
 
+        List<String> result = new ArrayList<>();
+        for (String word : words) {
+            result.addAll(extractWords(word));
+        }
+
+        return result;
+    }
+
+    private List<String> extractWords(String word) {
         List<String> result = new ArrayList<>();
         String lowerCaseWord = "";
         for(int i=0; i< word.length(); i++){

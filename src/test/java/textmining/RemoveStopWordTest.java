@@ -1,10 +1,11 @@
 package textmining;
 
-import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class RemoveStopWordTest {
 
@@ -12,8 +13,8 @@ public class RemoveStopWordTest {
 
     @Test
     public void deveRemoverPalavras(){
-        String removed = removeStopWord.remove("stop1 stop2 stop3");
+        List<String> removed = removeStopWord.remove(new ArrayList<>(Arrays.asList("stop1", "stop2", "stop3")));
 
-        Assert.assertTrue(StringUtils.isBlank(removed));
+        Assert.assertTrue(removed.isEmpty());
     }
 }
