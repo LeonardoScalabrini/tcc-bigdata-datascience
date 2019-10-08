@@ -4,7 +4,6 @@ import java.util.List;
 
 public class PipelineTextMining {
 
-    private static final String SPACE = "\\s";
     private RemoveAnotation removeAnotation = new RemoveAnotation();
     private Tokenizador tokenizador = new Tokenizador();
     private RemoveStopWord removeStopWordJava = new RemoveStopWord(FileUtil.load("stop_word_java.txt"));

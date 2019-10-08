@@ -26,9 +26,9 @@ public class GeneratePreviousTest {
 
         String diff = FileUtil.loadJava("diff.txt");
         String raw = FileUtil.loadJava("ComputationException_new.java");
-        String oldRaw = FileUtil.loadJava("ComputationException_old.java");
+        String oldRaw = FileUtil.loadJava("ComputationException_old.java").replaceAll("\\s","");;
 
-        String previous = generatePrevious.generate(diff, raw);
+        String previous = generatePrevious.generate(diff, raw).replaceAll("\\s","");;
 
         assertEquals(oldRaw, previous);
     }

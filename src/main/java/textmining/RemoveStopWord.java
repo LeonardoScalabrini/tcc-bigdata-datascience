@@ -4,7 +4,7 @@ import java.util.List;
 
 public class RemoveStopWord {
 
-    private static final String EMPTY = "";
+    private static final String SPACE = " ";
     private final List<String> stopWords;
 
     public RemoveStopWord(List<String> stopWords) {
@@ -19,7 +19,7 @@ public class RemoveStopWord {
     public String remove(String text){
         String result = text;
         for (String stopWord: stopWords) {
-            result = result.replaceAll(stopWord, EMPTY);
+            result = result.replaceAll(stopWord, SPACE);
         }
 
         return result;

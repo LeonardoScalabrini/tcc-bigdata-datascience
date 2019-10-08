@@ -1,1 +1,16 @@
-@@ -24,7 +24,15 @@\n  *\n  * @author Bob Lee\n  * @since 2.0\n+ * @deprecated This exception is no longer thrown by {@code com.google.common}. Previously, it was\n+ *     thrown by {@link MapMaker} computing maps. When support for computing maps was removed from\n+ *     {@code MapMaker}, it was added to {@code CacheBuilder}, which throws {@code\n+ *     ExecutionException}, {@code UncheckedExecutionException}, and {@code ExecutionError}. Any\n+ *     code that is still catching {@code ComputationException} may need to be updated to catch some\n+ *     of those types instead. (Note that this type, though deprecated, is not planned to be removed\n+ *     from Guava.)\n  */\n+@Deprecated\n @GwtCompatible\n public class ComputationException extends RuntimeException {\n   /** Creates a new instance with the given cause. */
+@@ -24,7 +24,15 @@
+  *
+  * @author Bob Lee
+  * @since 2.0
++ * @deprecated This exception is no longer thrown by {@code com.google.common}. Previously, it was
++ *     thrown by {@link MapMaker} computing maps. When support for computing maps was removed from
++ *     {@code MapMaker}, it was added to {@code CacheBuilder}, which throws {@code
++ *     ExecutionException}, {@code UncheckedExecutionException}, and {@code ExecutionError}. Any
++ *     code that is still catching {@code ComputationException} may need to be updated to catch some
++ *     of those types instead. (Note that this type, though deprecated, is not planned to be removed
++ *     from Guava.)
+  */
++@Deprecated
+ @GwtCompatible
+ public class ComputationException extends RuntimeException {
+   /** Creates a new instance with the given cause. */
