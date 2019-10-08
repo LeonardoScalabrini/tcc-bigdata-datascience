@@ -24,50 +24,44 @@ public class ExtractChange {
 
     private ExtractClass extractClass = new ExtractClass();
 
-    public String extract(String oldRaw, String raw, String diff){
-        try {
-            File temp = File.createTempFile("pattern", ".suffix");
-            File fTemp = File.createTempFile("pattern2", ".suffix");
+    public String extract(String oldRaw, String raw, String diff) throws IOException {
+        File temp = File.createTempFile("pattern", ".suffix");
+        File fTemp = File.createTempFile("pattern2", ".suffix");
 
-            temp.deleteOnExit();
-            fTemp.deleteOnExit();
+        temp.deleteOnExit();
+        fTemp.deleteOnExit();
 
-            BufferedWriter out = new BufferedWriter(new FileWriter(temp));
-            BufferedWriter fOut = new BufferedWriter(new FileWriter(fTemp));
-            out.write(StringUtils.isBlank(oldRaw) ? extractClass.extract(raw) : oldRaw);
-            fOut.write(raw);
-            out.close();
-            fOut.close();
+        BufferedWriter out = new BufferedWriter(new FileWriter(temp));
+        BufferedWriter fOut = new BufferedWriter(new FileWriter(fTemp));
+        out.write(StringUtils.isBlank(oldRaw) ? extractClass.extract(raw) : oldRaw);
+        fOut.write(raw);
+        out.close();
+        fOut.close();
 
-            FileDistiller distiller = ChangeDistiller.createFileDistiller(ChangeDistiller.Language.JAVA);
-            distiller.extractClassifiedSourceCodeChanges(temp, fTemp);
+        FileDistiller distiller = ChangeDistiller.createFileDistiller(ChangeDistiller.Language.JAVA);
+        distiller.extractClassifiedSourceCodeChanges(temp, fTemp);
 
-            StringBuilder stringBuilder = new StringBuilder();
-            distiller.getSourceCodeChanges().forEach(sourceCodeChange -> {
-                if (!DELETE.equalsIgnoreCase(sourceCodeChange.getClass().getSimpleName()))
-                    stringBuilder.append(getChanges(raw, sourceCodeChange)).append(SPACE);
-            });
+        StringBuilder stringBuilder = new StringBuilder();
+        distiller.getSourceCodeChanges().forEach(sourceCodeChange -> {
+            if (!DELETE.equalsIgnoreCase(sourceCodeChange.getClass().getSimpleName()))
+                stringBuilder.append(getChanges(sourceCodeChange)).append(SPACE);
+        });
 
-            Arrays.asList(Optional.ofNullable(diff).orElse(EMPTY).split(BREAKE_N)).forEach(s -> {
-                if (s.startsWith(IMPORT))
-                    return;
+        Arrays.asList(Optional.ofNullable(diff).orElse(EMPTY).split(BREAKE_N)).forEach(s -> {
+            if (s.startsWith(IMPORT))
+                return;
 
-                if (s.startsWith(PACKAGE))
-                    return;
+            if (s.startsWith(PACKAGE))
+                return;
 
-                if (s.startsWith(ADDITION))
-                    stringBuilder.append(s).append(SPACE);
-            });
+            if (s.startsWith(ADDITION))
+                stringBuilder.append(s).append(SPACE);
+        });
 
-            return stringBuilder.toString();
-
-        } catch (IOException e) {
-        }
-
-        return null;
+        return stringBuilder.toString();
     }
 
-    private String getChanges(String raw, SourceCodeChange codeChange) {
+    private String getChanges(SourceCodeChange codeChange) {
 
         return codeChange.getParentEntity().getUniqueName();
     }

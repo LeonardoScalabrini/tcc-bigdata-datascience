@@ -4,12 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 import util.FileUtil;
 
+import java.io.IOException;
+
 public class ExtractChangeTest {
 
     private ExtractChange extractChange = new ExtractChange();
 
     @Test
-    public void naoDeveExtrairAlteracoesDeCometarioEAnotacoes(){
+    public void naoDeveExtrairAlteracoesDeCometarioEAnotacoes() throws IOException {
         String oldRaw = FileUtil.loadJava("ComputationException_old.java");;
         String raw = FileUtil.loadJava("ComputationException_new.java");
 
@@ -19,7 +21,7 @@ public class ExtractChangeTest {
     }
 
     @Test
-    public void deveExtrairAlteracoes(){
+    public void deveExtrairAlteracoes() throws IOException {
         String oldRaw = FileUtil.loadJava("MapMaker_old.java");
         String raw = FileUtil.loadJava("MapMaker_new.java");
 
