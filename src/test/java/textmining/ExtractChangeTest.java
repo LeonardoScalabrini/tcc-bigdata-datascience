@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import util.FileUtil;
 
-import java.util.List;
-
 public class ExtractChangeTest {
 
     private ExtractChange extractChange = new ExtractChange();
@@ -15,7 +13,7 @@ public class ExtractChangeTest {
         String oldRaw = FileUtil.loadJava("ComputationException_old.java");;
         String raw = FileUtil.loadJava("ComputationException_new.java");
 
-        List<String> codeChanges = extractChange.extract(oldRaw, raw);
+        String codeChanges = extractChange.extract(oldRaw, raw, "");
 
         Assert.assertTrue(codeChanges.isEmpty());
     }
@@ -25,7 +23,7 @@ public class ExtractChangeTest {
         String oldRaw = FileUtil.loadJava("MapMaker_old.java");
         String raw = FileUtil.loadJava("MapMaker_new.java");
 
-        List<String> codeChanges = extractChange.extract(oldRaw, raw);
+        String codeChanges = extractChange.extract(oldRaw, raw, "");
 
         Assert.assertFalse(codeChanges.isEmpty());
     }

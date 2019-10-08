@@ -8,19 +8,22 @@ import java.util.List;
 public class TextMain {
 
     private static final String JAVA = ".java";
+    private static final String ERRO = "ERRO";
+    private static final String TWO_POINT = " : ";
     private static FindIssue findIssue = new FindIssue();
     private static GeneratePrevious generatePrevious = new GeneratePrevious();
     private static ExtractChange extractChange = new ExtractChange();
     private static PipelineTextMining pipelineTextMining = new PipelineTextMining();
 
     public static void main(String[] args) {
-        //new Thread(() -> mining("spring-boot")).start();
-        new Thread(() -> mining("guava")).start();
-        //new Thread(() -> mining("okhttp")).start();
-        //new Thread(() -> mining("elasticsearch")).start();
+        //mining("spring-boot");
+        //mining("guava");
+        mining("okhttp");
+        //mining("elasticsearch");
     }
 
     private static void mining(String database){
+
         CommitRepository commitRepository = new CommitRepository(database);
         List<Commit> commits = commitRepository.findMany(Commit.class);
 
@@ -29,10 +32,14 @@ public class TextMain {
             if (issue != null)
                 commit.getFiles().forEach(file -> {
                     if (file.getFilename().endsWith(JAVA) && file.getRaw() != null){
-                        String previous = generatePrevious.generate(file.getPatch(), file.getRaw());
-                        extractChange.extract(previous, file.getRaw()).forEach(change -> {
-                            System.out.println(database + " : " + issue + " : " + pipelineTextMining.mine(change));
-                        });
+
+                        try {
+                            String previous = generatePrevious.generate(file.getPatch(), file.getRaw());
+                            System.out.println(database + TWO_POINT + issue + TWO_POINT + pipelineTextMining.mine(extractChange.extract(previous, file.getRaw(), file.getPatch())));
+                        }catch (Exception e){
+                            System.out.println(ERRO + TWO_POINT + database + TWO_POINT + issue + TWO_POINT + e.getMessage());
+                        }
+
                     }
                 });
         });

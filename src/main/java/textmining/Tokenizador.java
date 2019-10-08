@@ -8,9 +8,8 @@ public class Tokenizador {
 
     private static final String SPACE = "\\s";
     private static final String REGEX = "\\n";
-    private static final String EMPTY = "";
 
     public List<String> token(String text){
-        return new ArrayList<>(Arrays.asList(text.replaceAll(REGEX, EMPTY).split(SPACE)));
+        return new ArrayList<>(Arrays.asList(text.replaceAll(REGEX, SPACE).split(SPACE)));
     }
 }

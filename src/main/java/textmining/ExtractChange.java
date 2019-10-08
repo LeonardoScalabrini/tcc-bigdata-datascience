@@ -9,18 +9,22 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Optional;
 
 public class ExtractChange {
 
+    private static final String IMPORT = "+import";
+    private static final String PACKAGE = "+package";
     private static final String SPACE = " ";
-
+    private static final String EMPTY = "";
     private static final String DELETE = "Delete";
+    private static final String BREAKE_N = "\n";
+    private static final String ADDITION = "+";
 
     private ExtractClass extractClass = new ExtractClass();
 
-    public List<String> extract(String oldRaw, String raw){
+    public String extract(String oldRaw, String raw, String diff){
         try {
             File temp = File.createTempFile("pattern", ".suffix");
             File fTemp = File.createTempFile("pattern2", ".suffix");
@@ -38,14 +42,25 @@ public class ExtractChange {
             FileDistiller distiller = ChangeDistiller.createFileDistiller(ChangeDistiller.Language.JAVA);
             distiller.extractClassifiedSourceCodeChanges(temp, fTemp);
 
-            List<String> changes = new ArrayList<String>();
+            StringBuilder stringBuilder = new StringBuilder();
             distiller.getSourceCodeChanges().forEach(sourceCodeChange -> {
-
                 if (!DELETE.equalsIgnoreCase(sourceCodeChange.getClass().getSimpleName()))
-                    changes.add(getChanges(raw, sourceCodeChange));
+                    stringBuilder.append(getChanges(raw, sourceCodeChange)).append(SPACE);
             });
 
-            return changes;
+            Arrays.asList(Optional.ofNullable(diff).orElse(EMPTY).split(BREAKE_N)).forEach(s -> {
+                if (s.startsWith(IMPORT))
+                    return;
+
+                if (s.startsWith(PACKAGE))
+                    return;
+
+                if (s.startsWith(ADDITION))
+                    stringBuilder.append(s).append(SPACE);
+            });
+
+            return stringBuilder.toString();
+
         } catch (IOException e) {
         }
 
@@ -53,8 +68,7 @@ public class ExtractChange {
     }
 
     private String getChanges(String raw, SourceCodeChange codeChange) {
-        return codeChange.getParentEntity().getUniqueName()
-                + SPACE
-                + codeChange.getChangedEntity().getUniqueName();
+
+        return codeChange.getParentEntity().getUniqueName();
     }
 }
