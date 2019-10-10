@@ -16,10 +16,12 @@ public class GitHubMain {
         createMinining(gitHubService, httpUtil, jsonConverter, username, password, "okhttp", "https://api.github.com/repos/square/okhttp");
         createMinining(gitHubService, httpUtil, jsonConverter, username, password, "guava", "https://api.github.com/repos/google/guava");
 
-        createRaw(gitHubService, httpUtil, jsonConverter, username, password, "elasticsearch", "https://api.github.com/repos/elastic/elasticsearch", "https://raw.githubusercontent.com/elastic/elasticsearch");
-        createRaw(gitHubService, httpUtil, jsonConverter, username, password, "okhttp", "https://api.github.com/repos/square/okhttp", "https://raw.githubusercontent.com/square/okhttp");
-        createRaw(gitHubService, httpUtil, jsonConverter, username, password, "guava", "https://api.github.com/repos/google/guava", "https://raw.githubusercontent.com/google/guava");
-        createRaw(gitHubService, httpUtil, jsonConverter, username, password, "spring-boot", "https://api.github.com/repos/spring-projects/spring-boot", "https://raw.githubusercontent.com/spring-projects/spring-boot");
+        new Thread(() -> createRaw(gitHubService, httpUtil, jsonConverter, username, password, "elasticsearch", "https://api.github.com/repos/elastic/elasticsearch", "https://raw.githubusercontent.com/elastic/elasticsearch")).start();
+        new Thread(() -> createRaw(gitHubService, httpUtil, jsonConverter, username, password, "okhttp", "https://api.github.com/repos/square/okhttp", "https://raw.githubusercontent.com/square/okhttp")).start();
+        new Thread(() -> createRaw(gitHubService, httpUtil, jsonConverter, username, password, "guava", "https://api.github.com/repos/google/guava", "https://raw.githubusercontent.com/google/guava")).start();
+        new Thread(() -> createRaw(gitHubService, httpUtil, jsonConverter, username, password, "spring-boot", "https://api.github.com/repos/spring-projects/spring-boot", "https://raw.githubusercontent.com/spring-projects/spring-boot")).start();
+
+        //TextMain.main(args);
     }
 
     private static void createMinining(GitHubService gitHubService, HttpUtil httpUtil, JsonConverter jsonConverter, String username, String password, String repository, String url) {

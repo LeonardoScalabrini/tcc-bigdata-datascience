@@ -69,6 +69,17 @@ public abstract class Repository <T>{
         return list;
     }
 
+    public List<T> findPagination(Class<T> clazz, Integer pageSize, Integer pageNum){
+        MongoCollection<Document> collection = getDocumentMongoCollection(clazz);
+        MongoCursor<Document> mongoCursor = collection.find().skip(pageSize*(pageNum-1)).limit(pageSize).cursor();
+
+        List<T> list = new ArrayList<T>();
+        while (mongoCursor.hasNext()){
+            list.add(jsonConverter.fromJson(mongoCursor.next().toJson(), clazz));
+        }
+
+        return list;
+    }
     private MongoDatabase getMongoDatabase() {
         return mongoClient.getDatabase(databaseName);
     }

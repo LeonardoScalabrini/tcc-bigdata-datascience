@@ -21,6 +21,7 @@ public class ExtractChange {
     private static final String DELETE = "Delete";
     private static final String BREAKE_N = "\n";
     private static final String ADDITION = "+";
+    private static final String POINT = ".";
 
     private ExtractClass extractClass = new ExtractClass();
 
@@ -44,7 +45,7 @@ public class ExtractChange {
         StringBuilder stringBuilder = new StringBuilder();
         distiller.getSourceCodeChanges().forEach(sourceCodeChange -> {
             if (!DELETE.equalsIgnoreCase(sourceCodeChange.getClass().getSimpleName()))
-                stringBuilder.append(getChanges(sourceCodeChange)).append(SPACE);
+                stringBuilder.append(getParentName(sourceCodeChange)).append(SPACE);
         });
 
         Arrays.asList(Optional.ofNullable(diff).orElse(EMPTY).split(BREAKE_N)).forEach(s -> {
@@ -61,8 +62,14 @@ public class ExtractChange {
         return stringBuilder.toString();
     }
 
-    private String getChanges(SourceCodeChange codeChange) {
+    private String getParentName(SourceCodeChange codeChange) {
 
-        return codeChange.getParentEntity().getUniqueName();
+        String uniqueName = codeChange.getParentEntity().getUniqueName();
+        int lastIndex = uniqueName.lastIndexOf(POINT);
+
+        if (lastIndex < 0)
+            return uniqueName;
+
+        return uniqueName.substring(lastIndex + 1);
     }
 }

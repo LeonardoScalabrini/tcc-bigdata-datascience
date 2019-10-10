@@ -1,5 +1,6 @@
 package github;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 
 import java.util.ArrayList;
@@ -10,7 +11,11 @@ public class GitHubMining {
 
     private static final String HEADER_LIMIT = "X-RateLimit-Remaining";
     private static final String HEADER_RESET = "X-RateLimit-Reset";
-
+    private static final Integer PAGE_SIZE = 10;
+    private static final String COMMIT = "COMMIT: ";
+    private static final String JAVA = ".java";
+    private static final String RAW = "RAW: ";
+    private static final String PERSISTIDO_COMMIT = "PERSISTIDO COMMIT";
     private final GitHubService gitHubService;
 
     private final HttpUtil httpUtil;
@@ -151,46 +156,45 @@ public class GitHubMining {
 
     public void extractRawFiles(GitHubConfig gitHubConfig) {
 
-        List<Commit> commits = commitRepository.findMany(Commit.class);
+        Integer pageNum = 1;
 
-        System.out.println("INICIANDO RAW");
-        Integer i = 0;
-        while (true){
+        while (true) {
 
-            System.out.println("COMMIT: " + i);
-            HttpResponse httpResponse = null;
-            try {
+            List<Commit> commits = commitRepository.findPagination(Commit.class, PAGE_SIZE, pageNum);
 
-                Commit commit = commits.get(i);
+            if (commits.isEmpty())
+                break;
 
-                for (File file : commit.getFiles()) {
+            for (Commit commit : commits) {
 
-                    if (!file.getFilename().endsWith(".java"))
-                        continue;
+                System.out.println(COMMIT + commit.getSha());
+                HttpResponse httpResponse = null;
+                try {
 
-                    httpResponse = gitHubService.raw(gitHubConfig, commit, file);
+                    for (File file : commit.getFiles()) {
 
-                    if (refreshLimit(httpResponse)) continue;
+                        if (!file.getFilename().endsWith(JAVA))
+                            continue;
 
-                    String raw = httpUtil.fromHttpResponse(httpResponse);
+                        if (StringUtils.isNotBlank(file.getRaw()))
+                            continue;
 
-                    System.out.println("RAW: ");
-                    System.out.println(raw);
-                    file.setRaw(raw);
+                        httpResponse = gitHubService.raw(gitHubConfig, commit, file);
+
+                        if (refreshLimit(httpResponse)) continue;
+
+                        String raw = httpUtil.fromHttpResponse(httpResponse);
+
+                        System.out.println(RAW);
+                        file.setRaw(raw);
+                        commitRepository.update(commit.getSha(), commit);
+                        System.out.println(PERSISTIDO_COMMIT);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-                if(i == commits.size() - 1){
-                    System.out.println("FIM RAW");
-                    break;
-                }
-
-                commitRepository.update(commits.get(i).getSha() ,commits.get(i));
-                System.out.println("PERSISTIDO COMMIT");
-
-                i++;
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            pageNum++;
         }
     }
 
