@@ -20,8 +20,6 @@ public class GitHubMain {
         new Thread(() -> createRaw(gitHubService, httpUtil, jsonConverter, username, password, "okhttp", "https://api.github.com/repos/square/okhttp", "https://raw.githubusercontent.com/square/okhttp")).start();
         new Thread(() -> createRaw(gitHubService, httpUtil, jsonConverter, username, password, "guava", "https://api.github.com/repos/google/guava", "https://raw.githubusercontent.com/google/guava")).start();
         new Thread(() -> createRaw(gitHubService, httpUtil, jsonConverter, username, password, "spring-boot", "https://api.github.com/repos/spring-projects/spring-boot", "https://raw.githubusercontent.com/spring-projects/spring-boot")).start();
-
-        //TextMain.main(args);
     }
 
     private static void createMinining(GitHubService gitHubService, HttpUtil httpUtil, JsonConverter jsonConverter, String username, String password, String repository, String url) {

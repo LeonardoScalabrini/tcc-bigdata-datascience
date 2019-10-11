@@ -31,6 +31,9 @@ public class FileMain {
 
             minedCommits.forEach(minedCommit -> {
                 try {
+                    if (minedCommit.getWords().isEmpty())
+                        return;
+
                     bufferedWriter.write(String.join(SPACE, minedCommit.getWords()) + BREAKE);
                     bufferedWriterIssue.write(minedCommit.getIssue() + BREAKE);
                 } catch (IOException e) {

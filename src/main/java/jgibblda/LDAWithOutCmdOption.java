@@ -8,8 +8,10 @@ public class LDAWithOutCmdOption {
         ldaCmdOption.alpha = 0.01;
         ldaCmdOption.beta = 0.01;
         ldaCmdOption.niters = 100;
-        ldaCmdOption.dir = "C:\\Users\\Leonardo\\tcc-bigdata-datascience\\JGibbLDA-v.1.0";
-        ldaCmdOption.dfile = "src/test/resources/teste.txt";
+        ldaCmdOption.dir = "C:\\Users\\Leonardo\\tcc-bigdata-datascience\\src\\main\\resources\\";
+        ldaCmdOption.dfile = "guava.txt";
+        ldaCmdOption.savestep = 100;
+        ldaCmdOption.modelName = "teste";
         Estimator estimator = new Estimator();
         estimator.init(ldaCmdOption);
         estimator.estimate();

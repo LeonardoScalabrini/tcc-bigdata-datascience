@@ -85,7 +85,7 @@ public class Estimator {
 		computeTheta();
 		computePhi();
 		trnModel.liter--;
-		trnModel.saveModel("model-final");
+		trnModel.saveModel(option.modelName);
 	}
 	
 	/**
