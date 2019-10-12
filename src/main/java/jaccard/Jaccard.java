@@ -1,14 +1,13 @@
 package jaccard;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Jaccard {
 
     private static final double ZERO = 0.0;
 
-    public <T> Double index(List<T> a, List<T> b){
+    public <T> Double index(Set<T> a, Set<T> b){
 
         if(a == null || a.isEmpty())
             return ZERO;
