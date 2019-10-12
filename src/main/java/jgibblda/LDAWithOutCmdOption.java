@@ -13,7 +13,7 @@ public class LDAWithOutCmdOption {
     }
 
     public String run(int k, int n, Double alpha, Double beta){
-        String uuid = UUID.fromString("tcc-bigdata-datascience").toString();
+        String uuid = UUID.randomUUID().toString();
         LDACmdOption ldaCmdOption = new LDACmdOption();
         ldaCmdOption.est = true;
         ldaCmdOption.K = k;

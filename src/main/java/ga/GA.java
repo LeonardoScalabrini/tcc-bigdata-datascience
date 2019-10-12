@@ -1,5 +1,6 @@
 package ga;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GA {
@@ -21,9 +22,9 @@ public class GA {
     public void execute(final Integer populationSize, final Integer iterations, Double crossoverProbability, Double mutationProbability) {
 
         List<Chromosome> population = startPopulationFactory.create(populationSize);
-
+        List<Fitness> fitnesses = new ArrayList<>();
         for (int i = 0; i < iterations; i++) {
-            List<Fitness> fitnesses = fitnessParallelFactory.execute(population, fitnessExecutor, populationSize);
+            fitnesses = fitnessParallelFactory.execute(population, fitnessExecutor, populationSize);
 
             if (conditionStopIteration.shouldStop(fitnesses))
                 break;
@@ -32,5 +33,14 @@ public class GA {
             population.clear();
             population.addAll(newPopulation);
         }
+        System.out.println("FIM GA");
+        fitnesses.forEach(fitness -> {
+            System.out.println("FITNESS VALUE");
+            System.out.println(fitness.value.doubleValue());
+            fitness.chromosome.getValues().forEach(component -> {
+                System.out.println("COMPONENT");
+                System.out.println(component.value.doubleValue());
+            });
+        });
     }
 }

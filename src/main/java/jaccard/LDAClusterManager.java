@@ -8,8 +8,8 @@ public class LDAClusterManager {
 
     private static final String SPACE = "\\s";
 
-    public Map<Integer, Set<Integer>> cluster(String uuid) {
-        List<String> lines = FileUtil.load(uuid + ".theta");
+    public Map<Integer, Set<Integer>> cluster(String dir, String uuid) {
+        List<String> lines = FileUtil.load(dir, uuid + ".theta");
         Map<Integer, Set<Integer>> map = new HashMap<>();
 
         for (int i = 0; i < lines.size(); i++) {

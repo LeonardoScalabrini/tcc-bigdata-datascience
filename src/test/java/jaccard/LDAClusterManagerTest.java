@@ -13,7 +13,7 @@ public class LDAClusterManagerTest {
 
     @Test
     public void deveCriarCluster(){
-        Map<Integer, Set<Integer>> map = ldaClusterManager.cluster("teste");
+        Map<Integer, Set<Integer>> map = ldaClusterManager.cluster("src/main/resources", "teste");
 
         Assert.assertEquals(map.get(0).toArray(), Arrays.asList(3, 6).toArray());
         Assert.assertEquals(map.get(1).toArray(), Arrays.asList(0, 1, 2, 4, 7, 8, 9, 10).toArray());

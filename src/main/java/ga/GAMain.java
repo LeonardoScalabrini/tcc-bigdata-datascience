@@ -2,7 +2,6 @@ package ga;
 
 import jaccard.ClusterManager;
 import jaccard.JaccardFitnessExecutor;
-import jgibblda.LDAWithOutCmdOption;
 
 import java.util.Map;
 import java.util.Random;
@@ -12,12 +11,12 @@ public class GAMain {
 
     public static void main(String... args){
 
-        String dir = "";
-        String file = "";
+        String dir = "C:\\Users\\Leonardo\\tcc-guava";
+        String file = "okhttp.txt";
         ClusterManager clusterManager = new ClusterManager();
-        Map<String, Set<Integer>> mapIssue = clusterManager.cluster("guava");
+        Map<String, Set<Integer>> mapIssue = clusterManager.cluster("okhttp");
         StartPopulationFactory startPopulationFactory = new AleatoryPopulationFactory();
-        FitnessExecutor fitnessExecutor = new JaccardFitnessExecutor(new LDAWithOutCmdOption(dir, file), mapIssue);
+        FitnessExecutor fitnessExecutor = new JaccardFitnessExecutor(dir, file, mapIssue);
         FitnessParallelFactory fitnessParallelFactory = new FitnessParallelFactory();
 
         ElitismTwoIndividuals elitismTwoIndividuals = new ElitismTwoIndividuals();

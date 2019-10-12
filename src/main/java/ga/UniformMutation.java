@@ -18,8 +18,7 @@ public class UniformMutation {
         Component component = values.get(randomNextInt);
         Double value = component.min + (random.nextDouble() * (component.max - component.min));
 
-        values.remove(randomNextInt);
-        values.add(randomNextInt, new Component(component.min, component.max, value));
+        values.set(randomNextInt, new Component(component.min, component.max, value));
 
         return new Chromosome(values);
     }

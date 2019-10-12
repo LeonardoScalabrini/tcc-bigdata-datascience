@@ -15,10 +15,11 @@ public class ClusterManagerTest {
 
     @Test
     public void deveGerarCluster(){
-        Map<String, Set<Integer>> map = clusterManager.cluster("guava");
-        List<String> issues = FileUtil.load( "guava-issue.txt");
+        Map<String, Set<Integer>> map = clusterManager.cluster("okhttp");
+        List<String> issues = FileUtil.load( "okhttp-issue.txt");
         Set<String> setIssues = new HashSet<>(issues);
         Assert.assertEquals(setIssues.size(), map.size());
+        System.out.println(map.keySet().size());
     }
 
 }

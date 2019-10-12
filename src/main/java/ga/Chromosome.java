@@ -1,6 +1,5 @@
 package ga;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Chromosome {
@@ -12,6 +11,6 @@ public class Chromosome {
     }
 
     public List<Component> getValues(){
-        return Collections.unmodifiableList(values);
+        return values;
     }
 }
